@@ -3,12 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 茗一的笔记
 subtitle:
 description:
-author: John Doe
+author: Mingyi Liang
 language:
 timezone:
+avatar: http://mingyi.qiniudn.com/mingyi_me_head.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -47,6 +48,24 @@ highlight:
 default_category: uncategorized
 category_map:
 tag_map:
+
+# Header
+menu:
+  主页: /
+  所有文章: /archives
+  # 随笔: /tags/随笔
+
+# SubNav
+subnav:
+  github: "https://github.com/liangmingyi"
+  weibo: "http://weibo.com/338158333"
+  zhihu: "http://www.zhihu.com/people/liang-ming-yi"
+  #douban: "#"
+  mail: "mingyi.me@gmail.com"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
