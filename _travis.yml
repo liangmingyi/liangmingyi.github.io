@@ -1,0 +1,33 @@
+language: node_js
+
+node_js:
+- 0.1
+
+branches:
+  only:
+  - source
+
+before_install:
+- npm install -g hexo
+
+install:
+- npm install
+
+# Notice: Replace 'YOUR NAME' and 'YOUR EMAIL'
+before_script:
+- git config --global user.name 'mingyi'
+- git config --global user.email 'mingyi.me@gmail.com'
+
+script:
+- hexo optimize
+
+after_success:
+- mkdir .deploy
+- cd .deploy
+- git clone --depth 1 --branch master --single-branch $DEPLOY_REPO . || (git init && git remote add -t master origin $DEPLOY_REPO)
+- rm -rf ./*
+- cp -r ../public/* .
+- git add -A .
+- git commit -m 'Site updated'
+- git branch -m master
+- git push -q -u origin master
