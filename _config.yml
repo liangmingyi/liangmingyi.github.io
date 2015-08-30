@@ -9,7 +9,6 @@ description:
 author: Mingyi Liang
 language:
 timezone:
-avatar: http://mingyi.qiniudn.com/mingyi_me_head.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

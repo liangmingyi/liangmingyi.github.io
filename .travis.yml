@@ -20,6 +20,7 @@ before_script:
 - git config --global user.name 'mingyi'
 - git config --global user.email 'mingyi.me@gmail.com'
 - git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+- cp _theme_config.yml themes/yilia/_config.yml
 
 script:
 - hexo generate
