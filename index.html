@@ -169,11 +169,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-redis-intro" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/30/hello-world/" class="article-date">
-  	<time datetime="2015-08-30T13:53:14.000Z" itemprop="datePublished">2015-08-30</time>
+      <a href="/2015/10/30/redis-intro/" class="article-date">
+  	<time datetime="2015-10-30T15:56:41.000Z" itemprop="datePublished">2015-10-30</time>
 </a>
     </div>
   
@@ -186,7 +186,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/30/hello-world/">Hello World</a>
+      <a class="article-title" href="/2015/10/30/redis-intro/">Redis简介</a>
     </h1>
   
 
@@ -195,12 +195,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+        <p>Redis 是开源的高性能 KV 存储引擎，提供 string、hash、list、set、sorted set、bitmap 等多种数据结构，可以用作缓存或存储。但原生 Redis 对集群化的支持比较弱，所以在大规模使用时，会在redis的上层再封装一层proxy来做分布式管理，twitter在2012年开源了内部的<a href="https://github.com/twitter/twemproxy" target="_blank" rel="external">Twemproxy</a></p>
+<h2 id="快速使用">快速使用</h2><h3 id="源码编译安装">源码编译安装</h3><p>从官网下载最新的稳定版源码包，解压编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-<span class="number">3.0</span>.<span class="number">5</span>.tar.gz</span><br><span class="line">tar xzf redis-<span class="number">3.0</span>.<span class="number">5</span>.tar.gz</span><br><span class="line"><span class="built_in">cd</span> redis-<span class="number">3.0</span>.<span class="number">5</span></span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<h3 id="启动">启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[work@mingyi redis-<span class="number">3.0</span>.<span class="number">5</span>]$ ./src/redis-server</span><br></pre></td></tr></table></figure>
+<p>一般会有个redis.conf的配置文件来做一些具体的配置，包括端口、master/slave、持久化策略等</p>
+<p>More info: <a href="http://redis.io/topics/config" target="_blank" rel="external">Redis configuration</a></p>
+<h3 id="通过自带的cli工具连接">通过自带的cli工具连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[work@mingyi redis]$ ./src/redis-cli</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; <span class="built_in">set</span> foo hello</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get foo</span><br><span class="line"><span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
