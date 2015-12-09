@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2013/12/09/potrait-record/index.html">
 <meta property="og:site_name" content="茗一的笔记">
 <meta property="og:description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
-<meta property="og:updated_time" content="2015-12-09T06:05:54.000Z">
+<meta property="og:updated_time" content="2015-12-09T06:09:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="做头像修改组件后的记录">
 <meta name="twitter:description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/头像上传/" style="font-size: 10px;">头像上传</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -193,6 +193,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/头像上传/">头像上传</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -205,7 +209,7 @@
 <p>看了看QQ空间的做法，在后端会存一个修改头像的时间戳，前端显示自己头像的地方，会加上后端返回的这个时间戳，每次更新头像的时候，后端同时更新这个时间戳。这办法还是挺靠谱的。哈哈，贴吧最终也是这么做的。</p>
 <p>但我还是想有没有别的办法，前端来去CDN的缓存，也就是悄悄的帮用户按F5呢？<br>发个AJAX请求去请求头像地址，设置request header的cache-control为no-cache。但这样跨域是不行的。头像系统因为是有很多个产品线共用的，所以有自己的域名。这条行不通了。</p>
 <p>突然想起去年D2上有淘宝同学分享过第三方js插件脚本自更新的解决方案，里面有介绍过一篇文章Self-updating scripts，看了下，发现里面正是我需要的，其实做法就是创建一个iframe，里面去刷新你需要清掉缓存的资源文件。</p>
-<p>立马就动手写了个页面试了下，果真可以唉。插入的iframe(在这)[<a href="http://tieba.baidu.com/tb/zt/itieba/cleancache.html?sign=ee31dcf8d2bbb700]。抓浏览器的网络请求，会发现每次请求头像的时候都是会返回200的状态码了！" target="_blank" rel="external">http://tieba.baidu.com/tb/zt/itieba/cleancache.html?sign=ee31dcf8d2bbb700]。抓浏览器的网络请求，会发现每次请求头像的时候都是会返回200的状态码了！</a></p>
+<p>立马就动手写了个页面试了下，果真可以唉。插入的iframe<a href="http://tieba.baidu.com/tb/zt/itieba/cleancache.html?sign=ee31dcf8d2bbb700" target="_blank" rel="external">在这</a>。抓浏览器的网络请求，会发现每次请求头像的时候都是会返回200的状态码了！</p>
 <p>后来一想，以上的这些只是自己的意淫的做法，真正想清还是需要通过后端传时间戳的方式，因为可以修改头像的地方实在是太多了，那么多的客户端以及无线智能版都可以修改，pc浏览器又怎么能知道呢?!</p>
 
       
