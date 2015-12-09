@@ -2,6 +2,7 @@ title: Redis简介
 date: 2015-10-30 23:00:02
 tags: redis
 ---
+
 Redis 是开源的高性能 KV 存储引擎，提供 string、hash、list、set、sorted set、bitmap 等多种数据结构，可以用作缓存或存储。但原生 Redis 对集群化的支持比较弱，所以在大规模使用时，会在redis的上层再封装一层proxy来做分布式管理，twitter在2012年开源了内部的[Twemproxy](https://github.com/twitter/twemproxy)。
 
 ## 快速使用
