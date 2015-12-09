@@ -103,7 +103,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/头像上传/" style="font-size: 10px;">头像上传</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/前端-跨域/" style="font-size: 10px;">前端, 跨域</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/项目总结/" style="font-size: 20px;">项目总结</a>
 					</div>
 				</section>
 				
@@ -388,7 +388,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/头像上传/">头像上传</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目总结/">项目总结</a></li></ul>
 	</div>
 
       
@@ -460,6 +460,84 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端-跨域/">前端, 跨域</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-webapp-develop-experience-summary" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/05/07/webapp-develop-experience-summary/" class="article-date">
+  	<time datetime="2013-05-07T15:13:37.000Z" itemprop="datePublished">2013-05-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/05/07/webapp-develop-experience-summary/">WEB APP开发项目总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u524D_u4EBA_u7684_u7ECF_u9A8C"><a href="#u524D_u4EBA_u7684_u7ECF_u9A8C" class="headerlink" title="前人的经验"></a>前人的经验</h2><p>第一次做WEB APP，自然少不了看些前人总结的一些文章，补充下基本的知识，这里有两篇总结的比较好的文章，对viewpoint、meta、mediaquery、touch事件等基本知识。还有一篇是豆瓣的一位前端在开发豆瓣阅读时的总结，写的非常棒。</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/pifoo/archive/2011/05/28/webkit-webapp.html" target="_blank" rel="external">webapp开发要点</a><br><a href="http://huisecheng.com/blog/2013/01/ugly-tips-in-mobile-f2e-development/" target="_blank" rel="external">在移动浏览器中踩过的坑</a><br><a href="http://lyric.im/best-practice-for-web-app-development/" target="_blank" rel="external">当前 WEB APP 开发的最佳实践</a></p>
+</blockquote>
+<h2 id="u5F39_u6027_u76D2_u5B50_u6A21_u578B"><a href="#u5F39_u6027_u76D2_u5B50_u6A21_u578B" class="headerlink" title="弹性盒子模型"></a>弹性盒子模型</h2><p>对一个父元素使用display: box其实就是弹性盒子模型的声明，毕竟属于CSS3的东西，使用的时候，需要附带私有前缀。就是诸如-moz-, -webkit-之类。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#father</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-display</span>:<span class="value"> box</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-display</span>:<span class="value"> box</span></span>; </span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> box</span></span>; </span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>假设父元素下有三个子元素，它们的样式如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#first_boy</span> <span class="rules">&#123; <span class="rule"><span class="attribute">-webkit-box-flex</span>:<span class="value"> <span class="number">2</span></span></span>; <span class="rule"><span class="attribute">-mox-box-flex</span>:<span class="value"> <span class="number">2</span></span></span>; <span class="rule"><span class="attribute">box-flex</span>:<span class="value"> <span class="number">2</span></span></span>; &#125;</span></span><br><span class="line"><span class="id">#second_boy</span> <span class="rules">&#123; <span class="rule"><span class="attribute">-webkit-box-flex</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="rule"><span class="attribute">-mox-box-flex</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="rule"><span class="attribute">box-flex</span>:<span class="value"> <span class="number">1</span></span></span>; &#125;</span></span><br><span class="line"><span class="id">#three_boy</span> <span class="rules">&#123; <span class="rule"><span class="attribute">-webkit-box-flex</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="rule"><span class="attribute">-mox-box-flex</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="rule"><span class="attribute">box-flex</span>:<span class="value"> <span class="number">1</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面的样式解释下，就是将父元素水平分成四等份，其中#first_boy占2份，second_boy和three_boy各占一份。</p>
+<p>下面接着来介绍下在父元素上还有的几个非常厉害的属性</p>
+<blockquote>
+<p>box-orient: 用来确定子元素的方向。是横着排还是竖着走。可选的值有: horizontal | vertical | inline-axis | block-axis | inherit<br>box-direction: 是用来确定子元素的排列顺序，可选值有: normal | reverse | inherit<br>box-align与box-pack都是决定盒子内部剩余空间怎么使用的。在行为效果上就是表现为“对齐”。其中box-align决定了垂直方向上的空间利用，也就是垂直方向上的对齐表现。为了便于记忆，我们可以拿来和CSS2中的vertical-align隐射记忆，两者都有”align”，都是都是垂直方向的对齐；而剩下的box-pack就是水平方向的了。可选参数有: start | end | center | baseline | stretch<br>其中stretch为默认值，为拉伸，也就是父标签高度过高，其孩子元素的高度就多高，以后等高布局不用愁了。start表示顶边对齐，end为底部对齐，center为居中对齐，baseline表示基线（英文字母o,m,n等的底边位置线）对齐<br>box-pack: 决定了父标签水平遗留空间的使用，其可选值有: start | end | center | justify，就大部分的行为表现来说分别对应text-align属性的值：left | right | center | justify</p>
+</blockquote>
+<h2 id="u4F7F_u7528localStorage_u9047_u5230_u7684_u4E00_u4E9B_u95EE_u9898"><a href="#u4F7F_u7528localStorage_u9047_u5230_u7684_u4E00_u4E9B_u95EE_u9898" class="headerlink" title="使用localStorage遇到的一些问题"></a>使用localStorage遇到的一些问题</h2><blockquote>
+<p>localStorage是同步的，会阻塞页面的渲染<br>对I/O有操作，读取数据消耗的时间随机<br>有大小限制，一般默认为5M，在内存吃紧时会丢失数据</p>
+</blockquote>
+<h2 id="u603B_u7ED3_u4E00_u4E0B_u5728_u8FD9_u6B21webapp_u5F00_u53D1_u8FC7_u7A0B_u4E2D_u7A0B_u5E8F_u548C_u8BBE_u8BA1_u4E0A_u9047_u5230_u7684_u5751"><a href="#u603B_u7ED3_u4E00_u4E0B_u5728_u8FD9_u6B21webapp_u5F00_u53D1_u8FC7_u7A0B_u4E2D_u7A0B_u5E8F_u548C_u8BBE_u8BA1_u4E0A_u9047_u5230_u7684_u5751" class="headerlink" title="总结一下在这次webapp开发过程中程序和设计上遇到的坑"></a>总结一下在这次webapp开发过程中程序和设计上遇到的坑</h2><blockquote>
+<p>设计上用了太多的图片，每一个标题文字都用的是图片，直接导致资源文件太多，并且为了适应多屏，图片会被各种拉伸，导致布局起来异常艰难<br>在手机浏览器上对position: fixed支持的不是很好，并且顶部的状态栏设计的是个不规则形状的图片，不能定高。在不同屏幕尺寸下等比拉升后，尤其在横屏时，高度会变得非常高，就一个状态栏就能占满整个屏幕<br>没有考虑到任何硬件加速的 CSS 3 属性的动画效果，所有的动画只能通过传统的DOM换图，导致性能卡死<br>因为主要是在智能终端上做音乐播放功能，完全没有必要使用SoundManager插件去兼容各种情况，应该直接用HTML5的audio API来播放音乐。用了这个插件在各个平台下会导致各种奇怪头疼的问题。</p>
+</blockquote>
+<p>对于audio API，github上依旧有各种对audio api的详细的示例代码 <a href="http://learnshare.github.io/labs/audio/audio-apis.html" target="_blank" rel="external">http://learnshare.github.io/labs/audio/audio-apis.html</a><br>项目地址：<a href="https://github.com/LearnShare/LearnShare.github.io/tree/master/labs/audio" target="_blank" rel="external">https://github.com/LearnShare/LearnShare.github.io/tree/master/labs/audio</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目总结/">项目总结</a></li></ul>
+	</div>
+
       
 
       
