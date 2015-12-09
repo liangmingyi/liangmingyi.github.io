@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="茗一的笔记">
 <meta property="og:description" content="Redis 是开源的高性能 KV 存储引擎，提供 string、hash、list、set、sorted set、bitmap 等多种数据结构，可以用作缓存或存储。但原生 Redis 对集群化的支持比较弱，所以在大规模使用时，会在redis的上层再封装一层proxy来做分布式管理，twitter在2012年开源了内部的Twemproxy。
 快速使用源码编译安装从官网下载最新的稳定版源码包，解压编译">
-<meta property="og:updated_time" content="2015-11-24T15:49:06.000Z">
+<meta property="og:updated_time" content="2015-12-09T06:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis简介">
 <meta name="twitter:description" content="Redis 是开源的高性能 KV 存储引擎，提供 string、hash、list、set、sorted set、bitmap 等多种数据结构，可以用作缓存或存储。但原生 Redis 对集群化的支持比较弱，所以在大规模使用时，会在redis的上层再封装一层proxy来做分布式管理，twitter在2012年开源了内部的Twemproxy。
@@ -209,14 +209,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Redis 是开源的高性能 KV 存储引擎，提供 string、hash、list、set、sorted set、bitmap 等多种数据结构，可以用作缓存或存储。但原生 Redis 对集群化的支持比较弱，所以在大规模使用时，会在redis的上层再封装一层proxy来做分布式管理，twitter在2012年开源了内部的<a href="https://github.com/twitter/twemproxy" target="_blank" rel="external">Twemproxy</a>。</p>
-<h2 id="快速使用">快速使用</h2><h3 id="源码编译安装">源码编译安装</h3><p>从官网下载最新的稳定版源码包，解压编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-<span class="number">3.0</span>.<span class="number">5</span>.tar.gz</span><br><span class="line">tar xzf redis-<span class="number">3.0</span>.<span class="number">5</span>.tar.gz</span><br><span class="line"><span class="built_in">cd</span> redis-<span class="number">3.0</span>.<span class="number">5</span></span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
-<h3 id="启动">启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[work@mingyi redis-<span class="number">3.0</span>.<span class="number">5</span>]$ ./src/redis-server</span><br></pre></td></tr></table></figure>
+<h2 id="u5FEB_u901F_u4F7F_u7528"><a href="#u5FEB_u901F_u4F7F_u7528" class="headerlink" title="快速使用"></a>快速使用</h2><h3 id="u6E90_u7801_u7F16_u8BD1_u5B89_u88C5"><a href="#u6E90_u7801_u7F16_u8BD1_u5B89_u88C5" class="headerlink" title="源码编译安装"></a>源码编译安装</h3><p>从官网下载最新的稳定版源码包，解压编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-<span class="number">3.0</span>.<span class="number">5</span>.tar.gz</span><br><span class="line">tar xzf redis-<span class="number">3.0</span>.<span class="number">5</span>.tar.gz</span><br><span class="line"><span class="built_in">cd</span> redis-<span class="number">3.0</span>.<span class="number">5</span></span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<h3 id="u542F_u52A8"><a href="#u542F_u52A8" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[work@mingyi redis-<span class="number">3.0</span>.<span class="number">5</span>]$ ./src/redis-server</span><br></pre></td></tr></table></figure>
 <p>一般会有个redis.conf的配置文件来做一些具体的配置，包括端口、master/slave、持久化策略等</p>
 <p>More info: <a href="http://redis.io/topics/config" target="_blank" rel="external">Redis configuration</a></p>
-<h3 id="通过自带的cli工具连接">通过自带的cli工具连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[work@mingyi redis]$ ./src/redis-cli</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; <span class="built_in">set</span> foo hello</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get foo</span><br><span class="line"><span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
-<h3 id="各种操作API">各种操作API</h3><p>翻翻官方的文档好了，各种数据类型以及各种操作的方法，<a href="http://redis.io/commands" target="_blank" rel="external">传送门</a></p>
-<h2 id="性能">性能</h2><p>一般来讲，吞吐上很难触及到 Redis 的瓶颈，主要需要关注的是耗时，性能测试和使用场景有非常大的关联。</p>
-<h2 id="应用场景">应用场景</h2><h3 id="访问计数">访问计数</h3><p>可利用 Redis 的原子计数, INCR, INCRBY 等命令实现最典型的 Redis 应用。如文章的浏览计数，最典型的浏览转提交的场景，每次浏览都意味着一次提交操作。</p>
+<h3 id="u901A_u8FC7_u81EA_u5E26_u7684cli_u5DE5_u5177_u8FDE_u63A5"><a href="#u901A_u8FC7_u81EA_u5E26_u7684cli_u5DE5_u5177_u8FDE_u63A5" class="headerlink" title="通过自带的cli工具连接"></a>通过自带的cli工具连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[work@mingyi redis]$ ./src/redis-cli</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; <span class="built_in">set</span> foo hello</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get foo</span><br><span class="line"><span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
+<h3 id="u5404_u79CD_u64CD_u4F5CAPI"><a href="#u5404_u79CD_u64CD_u4F5CAPI" class="headerlink" title="各种操作API"></a>各种操作API</h3><p>翻翻官方的文档好了，各种数据类型以及各种操作的方法，<a href="http://redis.io/commands" target="_blank" rel="external">传送门</a></p>
+<h2 id="u6027_u80FD"><a href="#u6027_u80FD" class="headerlink" title="性能"></a>性能</h2><p>一般来讲，吞吐上很难触及到 Redis 的瓶颈，主要需要关注的是耗时，性能测试和使用场景有非常大的关联。</p>
+<h2 id="u5E94_u7528_u573A_u666F"><a href="#u5E94_u7528_u573A_u666F" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="u8BBF_u95EE_u8BA1_u6570"><a href="#u8BBF_u95EE_u8BA1_u6570" class="headerlink" title="访问计数"></a>访问计数</h3><p>可利用 Redis 的原子计数, INCR, INCRBY 等命令实现最典型的 Redis 应用。如文章的浏览计数，最典型的浏览转提交的场景，每次浏览都意味着一次提交操作。</p>
 <ul>
 <li>key 一般是 id（可能是字符串或数字），value 是数字</li>
 <li>操作类型有递增和（INCRBY）获取（GET），也可以支持数据过期</li>
@@ -225,7 +225,7 @@
 </ul>
 <p>一般使用 Redis 的 string 数据类型。但内存消耗比较大，每对 key-string 平均消耗70-80字节。 内存消耗和 key 的长度也有关系，因此保守可以按每对 key-string 消耗 100 字节内存来估算。</p>
 <p>如果 key 的数目非常大，推荐使用 Redis 的 Hash 数据类型，利用多级 key 的思路。 具体方式是：将原来的 key 拆分为两部分，如 12345678 里的高位 12345 作为 hash 的 key，低位 678 作为 hash 结构内部的 key。 这样内存消耗可以降低到原来的 1/3 左右。原理是 hash 内部会对数据做压缩（hash-zipmap）。</p>
-<h3 id="Profile">Profile</h3><p>可利用 Hash，List 等数据结构实现适用范围非常广的场景</p>
+<h3 id="Profile"><a href="#Profile" class="headerlink" title="Profile"></a>Profile</h3><p>可利用 Hash，List 等数据结构实现适用范围非常广的场景</p>
 <ul>
 <li>浏览量大、或更新量大、或二者皆有</li>
 <li>数据比较短，往往是一组标记、或者一组 id</li>
@@ -234,7 +234,7 @@
 <p>如是简单的标记位，可以把 Redis 的 string 看做一个标记位数组，支持按 bit 获取和设置。如将用户 id 做 key，第 2 个 bit 存储用户是否会员，第 3 个 bit 标记用户的性别。</p>
 <p>如是三级结构，key-&gt;field-&gt;value，需要使用 Redis 的 hash。如，将用户 id 作为 key，配置项作为 field，配置数据作为 value。</p>
 <p>如没有排序需求，可以使用 Redis 的 List。如，将用户 id 作为 key，数据项作为 value。</p>
-<h3 id="排行榜">排行榜</h3><p>可利用 Sorted Set 数据结构实现。</p>
+<h3 id="u6392_u884C_u699C"><a href="#u6392_u884C_u699C" class="headerlink" title="排行榜"></a>排行榜</h3><p>可利用 Sorted Set 数据结构实现。</p>
 <p>如贴吧里吧的用户积分排名、文库里文档的下载排行，等等。拉链类型的应用。榜单长度可长可短，榜单个数可大可小。</p>
 <ul>
 <li>榜单里添加、删除 item</li>
@@ -251,7 +251,7 @@
 <li>获取item的名次：ZRANK、ZREVRANK，时间复杂度O(logn)</li>
 <li>分页获取拉链：ZRANGE、ZREVRANGE，时间复杂度O(logn)</li>
 </ul>
-<h3 id="Cache">Cache</h3><p>从功能上，可以把 Redis 当做 Cache 来用。</p>
+<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><p>从功能上，可以把 Redis 当做 Cache 来用。</p>
 <p>Redis 内部支持多种淘汰方式：如</p>
 <ul>
 <li>在有过期时间的数据集合里 LRU 淘汰</li>
@@ -267,7 +267,7 @@
 <li>由于使用的内存分配器和 Memcache 的 Slab 机制特点的不同，Redis 在大 Value 上的内存使用率不高。</li>
 </ul>
 <p>因此，如果是 Cache 类是需求，使用 Memcache 服务更合适。</p>
-<h3 id="缓冲区队列">缓冲区队列</h3><p>可利用 List，Pub/Sub 实现简单的队列，或发布/订阅结构，但这种解决方案并不可靠。</p>
+<h3 id="u7F13_u51B2_u533A_u961F_u5217"><a href="#u7F13_u51B2_u533A_u961F_u5217" class="headerlink" title="缓冲区队列"></a>缓冲区队列</h3><p>可利用 List，Pub/Sub 实现简单的队列，或发布/订阅结构，但这种解决方案并不可靠。</p>
 
       
     </div>
@@ -286,6 +286,11 @@
       </div>
     </a>
   
+  
+    <a href="/2013/12/09/potrait-record/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">做头像修改组件后的记录</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 

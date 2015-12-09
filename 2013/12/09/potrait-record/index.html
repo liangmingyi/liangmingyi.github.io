@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>case study | 茗一的笔记</title>
+  <title>做头像修改组件后的记录 | 茗一的笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在百度，有一种会议叫Case Study，当项目出现严重的线上事故/bug（对外部/内部用户有影响）时，会由项目负责人作为owner邀请项目成员及成员的leader们一起分析事故原因以及讨论后续如何避免类似事故的会议，事故严重级别越高，就会有越高级别的经理/总监参加。刚进公司的时候，公司的前辈们就各种警示，Case Study是多么多么的恐怖和吓人，听起来完全是个批斗会一样，导致内心一直很惧怕自己">
+  <meta name="description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="case study">
-<meta property="og:url" content="http://yoursite.com/2015/11/24/case-study/index.html">
+<meta property="og:title" content="做头像修改组件后的记录">
+<meta property="og:url" content="http://yoursite.com/2013/12/09/potrait-record/index.html">
 <meta property="og:site_name" content="茗一的笔记">
-<meta property="og:description" content="在百度，有一种会议叫Case Study，当项目出现严重的线上事故/bug（对外部/内部用户有影响）时，会由项目负责人作为owner邀请项目成员及成员的leader们一起分析事故原因以及讨论后续如何避免类似事故的会议，事故严重级别越高，就会有越高级别的经理/总监参加。刚进公司的时候，公司的前辈们就各种警示，Case Study是多么多么的恐怖和吓人，听起来完全是个批斗会一样，导致内心一直很惧怕自己">
+<meta property="og:description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
 <meta property="og:updated_time" content="2015-12-09T06:05:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="case study">
-<meta name="twitter:description" content="在百度，有一种会议叫Case Study，当项目出现严重的线上事故/bug（对外部/内部用户有影响）时，会由项目负责人作为owner邀请项目成员及成员的leader们一起分析事故原因以及讨论后续如何避免类似事故的会议，事故严重级别越高，就会有越高级别的经理/总监参加。刚进公司的时候，公司的前辈们就各种警示，Case Study是多么多么的恐怖和吓人，听起来完全是个批斗会一样，导致内心一直很惧怕自己">
+<meta name="twitter:title" content="做头像修改组件后的记录">
+<meta name="twitter:description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -168,11 +168,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-case-study" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-potrait-record" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/24/case-study/" class="article-date">
-  	<time datetime="2015-11-24T23:30:16.000Z" itemprop="datePublished">2015-11-24</time>
+      <a href="/2013/12/09/potrait-record/" class="article-date">
+  	<time datetime="2013-12-09T13:55:22.000Z" itemprop="datePublished">2013-12-09</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      case study
+      做头像修改组件后的记录
     </h1>
   
 
@@ -193,10 +193,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -205,17 +201,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在百度，有一种会议叫Case Study，当项目出现严重的线上事故/bug（对外部/内部用户有影响）时，会由项目负责人作为owner邀请项目成员及成员的leader们一起分析事故原因以及讨论后续如何避免类似事故的会议，事故严重级别越高，就会有越高级别的经理/总监参加。刚进公司的时候，公司的前辈们就各种警示，Case Study是多么多么的恐怖和吓人，听起来完全是个批斗会一样，导致内心一直很惧怕自己会参加这样的会议，但如果从来没有这种经历，难免也有些遗憾吧。</p>
-<p>在公司的这两年半多的时间里，我作为报告人Case Study过两次，我其实更希望自己能够有更多这样的经历（除去因为低级错误造成的），因为这样第一能证明你做的事情是足够重要的，值得大家一起开会探讨，第二这个会议对自己理清思路，培养主动思考解决问题寻求解决方案的能力非常有帮助，第三给自己留下印象更加深刻的警示，避免再次发生类似事件，一坑不落二次。不过这些可能会给你的经理带来一些麻烦，这也说明跟一个“爱你”的leader是多么重要。</p>
-<p>附上每次Case Study必须回答的6个问题</p>
-<ul>
-<li>为什么会发生这个问题？design、coding、操作？</li>
-<li>为什么测试阶段没有发现?</li>
-<li>系统为什么不能容错？</li>
-<li>能不能更早发现问题？</li>
-<li>解决过程能否更快？</li>
-<li>怎么防止类似的事情发生？</li>
-</ul>
+        <p>最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。那有没有办法悄悄的帮用户刷掉缓存呢?</p>
+<p>看了看QQ空间的做法，在后端会存一个修改头像的时间戳，前端显示自己头像的地方，会加上后端返回的这个时间戳，每次更新头像的时候，后端同时更新这个时间戳。这办法还是挺靠谱的。哈哈，贴吧最终也是这么做的。</p>
+<p>但我还是想有没有别的办法，前端来去CDN的缓存，也就是悄悄的帮用户按F5呢？<br>发个AJAX请求去请求头像地址，设置request header的cache-control为no-cache。但这样跨域是不行的。头像系统因为是有很多个产品线共用的，所以有自己的域名。这条行不通了。</p>
+<p>突然想起去年D2上有淘宝同学分享过第三方js插件脚本自更新的解决方案，里面有介绍过一篇文章Self-updating scripts，看了下，发现里面正是我需要的，其实做法就是创建一个iframe，里面去刷新你需要清掉缓存的资源文件。</p>
+<p>立马就动手写了个页面试了下，果真可以唉。插入的iframe(在这)[<a href="http://tieba.baidu.com/tb/zt/itieba/cleancache.html?sign=ee31dcf8d2bbb700]。抓浏览器的网络请求，会发现每次请求头像的时候都是会返回200的状态码了！" target="_blank" rel="external">http://tieba.baidu.com/tb/zt/itieba/cleancache.html?sign=ee31dcf8d2bbb700]。抓浏览器的网络请求，会发现每次请求头像的时候都是会返回200的状态码了！</a></p>
+<p>后来一想，以上的这些只是自己的意淫的做法，真正想清还是需要通过后端传时间戳的方式，因为可以修改头像的地方实在是太多了，那么多的客户端以及无线智能版都可以修改，pc浏览器又怎么能知道呢?!</p>
 
       
     </div>
@@ -225,11 +216,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2015/10/30/redis-intro/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis简介</div>
-      <strong class="article-nav-caption">></strong>
+    <a href="/2015/10/30/redis-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Redis简介
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -256,7 +251,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="case-study" data-title="case study" data-url="http://yoursite.com/2015/11/24/case-study/"></div>
+	<div class="ds-thread" data-thread-key="potrait-record" data-title="做头像修改组件后的记录" data-url="http://yoursite.com/2013/12/09/potrait-record/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
