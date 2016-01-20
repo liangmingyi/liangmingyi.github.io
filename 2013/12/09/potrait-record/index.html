@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>做头像修改组件后的记录 | 茗一的笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
@@ -11,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2013/12/09/potrait-record/index.html">
 <meta property="og:site_name" content="茗一的笔记">
 <meta property="og:description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
-<meta property="og:updated_time" content="2015-12-09T07:26:24.000Z">
+<meta property="og:updated_time" content="2016-01-20T16:08:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="做头像修改组件后的记录">
 <meta name="twitter:description" content="最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。">
@@ -21,6 +22,7 @@
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
+
 <body>
   <div id="container">
     <div class="left-col">
@@ -64,7 +66,7 @@
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>菜单</li>
-						<li>标签</li>
+						<li>標籤</li>
 						
 						<li>友情链接</li>
 						
@@ -126,6 +128,7 @@
 		</div>
 	</header>				
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -136,7 +139,9 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
+			
 				<img lazy-src="http://mingyi.qiniudn.com/mingyi_me_head.jpg" class="js-avatar">
+			
 			</div>
 			<hgroup>
 			  <h1 class="header-author">Mingyi Liang</h1>
@@ -168,6 +173,7 @@
 		</header>				
 	</div>
 </nav>
+
       <div class="body-wrap"><article id="post-potrait-record" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -241,20 +247,7 @@
 </article>
 
 
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
+
 
 
 
@@ -285,7 +278,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Mingyi Liang
+    		&copy; 2016 Mingyi Liang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
