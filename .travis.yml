@@ -19,8 +19,8 @@ install:
 before_script:
 - git config --global user.name 'mingyi'
 - git config --global user.email 'mingyi.me@gmail.com'
-- git clone https://github.com/rudy-yuan/free2mind.git themes/free2mind
-- cp _theme_config.yml themes/free2mind/_config.yml
+- git clone https://github.com/lotabout/hexo-theme-noise themes/noise
+- cp _theme_config.yml themes/noise/_config.yml
 
 script:
 - hexo generate

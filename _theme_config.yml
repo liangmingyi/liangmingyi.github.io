@@ -1,58 +1,25 @@
-slogan: "茗一的笔记."
-
-theme: cerulean
-inverse: inverse
-
+# noise/_config.yml
+# Header
 menu:
-  - title: 文章归档
-    url: archives
-    intro: "All the articles."
-    icon: "fa fa-archive"
-  - title: 给我留言
-    url: message
-    intro: "All the tags."
-    icon: "fa fa-pencil"
-  - title: 关于本站
-    url: about
-    intro: "About me."
-    icon: "fa fa-info-circle"
+  ## If your site is put in a subdirectory, set Home as '/child/'
+  Home: /
+  Archives: archives
 
-links:
-  - title: "EI__Nino的专栏"
-    url: http://blog.csdn.net/ei__nino
-    intro: "VP金."
-    icon: "fa fa-share"
-  - title: "诚哥的猜想"
-    url: http://leechan.me/
-    intro: "诚哥"
-    icon: "fa fa-github"
+social:
+  email: mingyi.me@gmail.com
+  github: https://github.com/liangmingyi
+  rss: /atom.xml
 
-widgets:
-- search
-- broadcast
-- category
-- tagcloud
-- links
-- recent_comments
-- recent_visitor
+# Content
+fancybox: true # set to true if you want to use it
 
-rss: 
-fancybox: true
-favicon: favicon.ico
-duoshuo_shortname: mingyi-me
+duoshuo: mingyi-me
+disqus: #disqus _shortname
+google_analytics: #Google Analytics Tracking Code
+google_adsense_page_level_ads: #Google Adsense Page Level Ads Code
 
-# Analytics
-google_analytics:
-  enable: false
-  siteid:
-baidu_tongji:
-  enable: false
-  siteid:
-
-# search
-swiftype_key: YYG5W2xNQTns7U8J3YqW
-
-# share widgets
-bdshare: false
-jiathis: true
-
+less:
+  paths:
+    - source/css
+  compress:
+    true
