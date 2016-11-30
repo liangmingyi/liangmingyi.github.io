@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-- 0.1
+- 6.7.0
 
 branches:
   only:
@@ -19,8 +19,8 @@ install:
 before_script:
 - git config --global user.name 'mingyi'
 - git config --global user.email 'mingyi.me@gmail.com'
-- git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
-- cp _theme_config.yml themes/yilia/_config.yml
+- git clone https://github.com/rudy-yuan/free2mind.git themes/free2mind
+- cp _theme_config.yml themes/free2mind/_config.yml
 
 script:
 - hexo generate
