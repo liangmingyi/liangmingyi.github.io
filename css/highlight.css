@@ -1,96 +1,129 @@
-/* Code, Pre [landscape](http://goo.gl/hnwXeD) */
-
-/* highlight */
-
-pre, .highlight {  
-  background: #333 !important;
-  margin: 0.5em 0;
-  padding: 1em 2%;
-  overflow: auto;
-  color: #ccc!important;
-  font-size: 14px;
-  text-shadow: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;  
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.code-block,
+article pre,
+article .highlight {
+  background: #2d2d2d;
+  margin: 2ex 0;
+  padding: 1rem 1em;
   border-style: solid;
-  border-color: #ddd;
-  border-width: 1px 0;
-  line-height: 20px;
+  border-color: #333;
+  border: 1px 0;
+  border-radius: 2px;
+  overflow: auto;
+  color: #cccccc;
+  font-size: 0.85em;
+  line-height: 1.6em;
 }
-
-code {
-  background: #eee;
-  border: 1px solid #d6d6d6;
-  padding: 0 5px;
-  margin: 0 2px;
-  font-size: 90%;
-  text-shadow: 0 1px #fff;  
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: normal;
+.line-numbers,
+article .highlight .gutter pre,
+article .gist-not-used .gist-file .gist-data .line-numbers {
+  color: #666;
+  font-size: 0.85em;
 }
-
-.highlight .gutter pre{
-  text-align: left;
-  padding-right: 20px;
-  width: 100%;
-  color: #666;  
+article pre,
+article code {
+  font-family: Monaco, "Source Code Pro", Consolas, Menlo, Consolas, monospace;
 }
-
-pre,
-code {
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;  
+article code {
+  background: #ffffff;
+  text-shadow: 0 1px #fff;
+  padding: 0 0.3rem;
 }
-
-pre code {
+article pre code {
   background: none;
   text-shadow: none;
   padding: 0;
 }
-
-.highlight pre {
+article .highlight pre {
   border: none;
   margin: 0;
   padding: 0;
-  white-space: pre;
 }
-
-.highlight table {
+article .highlight table {
   margin: 0;
-  width: auto;  
+  width: auto;
 }
-
-.highlight td {
+article .highlight td {
   border: none;
-  padding: 0;  
+  padding: 0;
 }
-
-
-/* figcaption */
-
-.highlight figcaption {
-  zoom: 1;
+article .highlight figcaption {
   font-size: 0.85em;
-  color: #999;
+  color: #999999;
   line-height: 1em;
   margin-bottom: 1em;
 }
-.highlight figcaption:before,
-.highlight figcaption:after {
-  content: "";
-  display: table;
-}
-.highlight figcaption:after {
-  clear: both;
-}
-.highlight figcaption a {
+article .highlight a {
+  color: #66cccc !important;
+  text-decoration: none;
   float: right;
 }
-
+article .highlight a:hover {
+  color: #6699cc !important;
+}
+article .highlight .gutter pre {
+  text-align: right;
+  padding-right: 20px;
+}
+article .highlight .line {
+  height: 1.6em;
+}
+article .gist-not-used {
+  margin: 0;
+  border-style: solid;
+  border-color: #cccccc;
+  border-width: 1px 0;
+  background: #2d2d2d;
+  padding: 1em 1em 1em 2px;
+}
+article .gist-not-used .gist-file {
+  border: none;
+  font-family: Monaco, "Source Code Pro", Consolas, Menlo, Consolas, monospace;
+  margin: 0;
+}
+article .gist-not-used .gist-file .gist-data {
+  background: none;
+  border: none;
+}
+article .gist-not-used .gist-file .gist-data .line-numbers {
+  background: none;
+  border: none;
+  padding: 0 20px 0 0;
+}
+article .gist-not-used .gist-file .gist-data .line-data {
+  padding: 0 !important;
+}
+article .gist-not-used .gist-file .highlight {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+article .gist-not-used .gist-file .gist-meta {
+  background: #2d2d2d;
+  color: #999999;
+  font: 0.85em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 0;
+  padding: 0;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+article .gist-not-used .gist-file a {
+  color: #0000ff;
+  font-weight: normal;
+}
+article .gist-not-used .gist-file a:hover {
+  text-decoration: underline;
+}
+article iframe {
+  border: 1px solid #CCC;
+}
 pre .comment,
 pre .title {
-  color: #999;
+  color: #999999;
 }
 pre .variable,
 pre .attribute,
@@ -104,7 +137,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #f2777a!important;
+  color: #f2777a;
 }
 pre .number,
 pre .preprocessor,
@@ -112,12 +145,12 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #f99157!important;
+  color: #f99157;
 }
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #9c9!important;
+  color: #99cc99;
 }
 pre .string,
 pre .value,
@@ -125,10 +158,10 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #9c9!important;
+  color: #99cc99;
 }
 pre .css .hexcolor {
-  color: #6cc!important;
+  color: #66cccc;
 }
 pre .function,
 pre .python .decorator,
@@ -138,9 +171,9 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #69c!important;
+  color: #6699cc;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #c9c!important;
+  color: #cc99cc;
 }
