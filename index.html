@@ -1,0 +1,507 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>茗一的笔记</title>
+  <meta name="author" content="Mingyi Liang">
+  
+  <meta name="description" content="茗一的笔记">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="茗一的笔记"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+
+  <!-- CSS -->
+
+
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">茗一的笔记</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>文章归档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-info-circle"></i>关于本站
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan" style="margin-bottom: 17px">
+      <h4 style="margin-top: 0;color: #333;font-size:15px;font-weight: normal;">当前位置 ： 首页</h4>
+</div>    
+		<div id="top_search"></div>
+		
+		<!-- title and entry -->
+		
+            <div class="archive">	  
+				<div id="archives"> 
+				
+					<header class="entry-header">
+						<div class="entry-info" text-transform : capitalize>				     					      	      
+							
+							  <span class="entry-date">
+								  <span class="fa fa-calendar" aria-hidden="true"></span>
+								  2013-12-09						      
+							  </span>
+							  
+							  <span class="author vcard">
+								  <span class="fa fa-user" aria-hidden="true"></span>
+								  <a href="/">Mingyi Liang</a> 	
+							  </span>
+
+
+
+							<span class="comments-link">
+								<span class="fa fa-comments" aria-hidden="true"></span>
+								<span class="ds-thread-count" data-thread-key="2013/12/09/potrait-record/">暂无评论</span>
+							</span>	
+							
+						</div>	
+									
+						<h3 class="entry-title"> 
+							  <a href="/2013/12/09/potrait-record/" >做头像修改组件后的记录</a>
+						</h3>
+
+					</header>
+
+					<div class="entry">
+  <div class="row">
+	
+	
+		<p>最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。那有没有办法悄悄的帮用户刷掉缓存呢?</p>
+<p>看了看QQ空间的做法，在后端会存一个修改头像的时间戳，前端显示自己头像的地方，会加上后端返回的这个时间戳，每次更新头像的时候，后端同时更新这个时间戳。这办法还是挺靠谱的。哈哈，贴吧最终也是这么做的。</p>
+<p>但我还是想有没有别的办法，前端来去CDN的缓存，也就是悄悄的帮用户按F5呢？<br>发个AJAX请求去请求头像地址，设置request header的cache-control为no-cache。但这样跨域是不行的。头像系统因为是有很多个产品线共用的，所以有自己的域名。这条行不通了。</p>
+<p>突然想起去年D2上有淘宝同学分享过第三方js插件脚本自更新的解决方案，里面有介绍过一篇文章Self-updating scripts，看了下，发现里面正是我需要的，其实做法就是创建一个iframe，里面去刷新你需要清掉缓存的资源文件。</p>
+<p>立马就动手写了个页面试了下，果真可以唉。插入的iframe<a href="http://tieba.baidu.com/tb/zt/itieba/cleancache.html?sign=ee31dcf8d2bbb700" target="_blank" rel="external">在这</a>。抓浏览器的网络请求，会发现每次请求头像的时候都是会返回200的状态码了！</p>
+<p>后来一想，以上的这些只是自己的意淫的做法，真正想清还是需要通过后端传时间戳的方式，因为可以修改头像的地方实在是太多了，那么多的客户端以及无线智能版都可以修改，pc浏览器又怎么能知道呢?!</p>
+
+	
+	...</div>
+</div>
+
+
+					<footer class="entry-meta">					  
+						<a href="/2013/12/09/potrait-record/" class="more-link"><span class="fa fa-link" aria-hidden="true"></span>  阅读全文</a>	
+					</footer>
+
+				</div>	
+
+             </div>
+		
+            <div class="archive">	  
+				<div id="archives"> 
+				
+					<header class="entry-header">
+						<div class="entry-info" text-transform : capitalize>				     					      	      
+							
+							  <span class="entry-date">
+								  <span class="fa fa-calendar" aria-hidden="true"></span>
+								  2013-05-20						      
+							  </span>
+							  
+							  <span class="author vcard">
+								  <span class="fa fa-user" aria-hidden="true"></span>
+								  <a href="/">Mingyi Liang</a> 	
+							  </span>
+
+
+
+							<span class="comments-link">
+								<span class="fa fa-comments" aria-hidden="true"></span>
+								<span class="ds-thread-count" data-thread-key="2013/05/20/coross-domain-problem/">暂无评论</span>
+							</span>	
+							
+						</div>	
+									
+						<h3 class="entry-title"> 
+							  <a href="/2013/05/20/coross-domain-problem/" >有关前端跨域问题的总结</a>
+						</h3>
+
+					</header>
+
+					<div class="entry">
+  <div class="row">
+	
+	
+		<p>与后端接口跨域数据通信算是一个比较常见的情景，并且现在也已经有了非常多的解决方案，在此我就来整理下自己对于跨域问题的解决方案。</p>
+<p>与后端接口数据通信主要分为HTTP GET和POST两种，说到它们之间的区别，表面上的区别就不讲了，太基础了，什么长度限制等等自己查下就清楚了。这里主要说下它们的语义：</p>
+<blockquote>
+<p>对于GET，是用于获取指定URL上的资源，是读的操作，无论对某个资源进行多少次，它的状态是不会改变的，在这个意义上我们可以讲GET是安全的，因为GET是安全的，所以返回的内容可以被浏览器、Cache服务器缓存起来；</p>
+<p>对于POST，语义是对指定资源添加或修改数据，所以是不安全的。每次提交POST，参与的代码都会认为这个操作会修改操作资源对象的状态，于是浏览器在按下F5时会弹出确认框，同时浏览器和Cache服务器不会缓存POST的内容。<br>安全的是指没有明显的对用户有影响的副作用(包括修改该资源的状态)。HTTP方法里的GET和HEAD都是安全的。<br>还有个概念叫幂等，是指一个方法不论多少次操作，结果都是一样。PUT(把内容放到指定URL)，DELETE(删除某个URL代表的资源)，虽然都修改了资源内容，但多次操作，结果是相同的，因此和HEAD，GET一样都是幂等的。<br>所以根据HTTP协议，GET是安全的，也是幂等的，而POST既不是安全的，也不是幂等的。</p>
+</blockquote>
+<p>扯得有点远了，继续回到跨域数据通信的问题上来。<br>按上面说的，接口大体上会有读与写两种类型的需求，读数据用jsonp能解决掉跨域、跨浏览器的问题。但写数据时，用GET方式似乎不太稳妥，当然，如果后端能够很好的解决这样的安全问题，其实写用jsonp来与客户端通信也是很好的，这样的话，就能省不少的事。记得支付宝给第三方的快捷支付的接口，就全部是GET的方式处理的，但经过一系列的各种加密什么的处理，还是非常安全的。</p>
+<p>在这里还是不想对写数据接口用jsonp进行，当然我也不喜欢用flash来跨域通信的方式，也不考虑CORS这些需要后端一些改动的方法，我想回归最简单、最纯粹的方式。要POST数据，我就构建一个form表单来post吧。直接把form表单的action指向后端接口，这样做太幼稚了，整个页面会刷新跳转到到action指定的接口那去的，所以在这里会把form的target的值设定为一个iframe的name，这样表单提交的目标成了iframe，form提交的结果也只会在那个iframe中出现，页面就不会跳转了。</p>
+<p>当然这个iframe显然要隐藏掉，这种小勾当还是不要让用户看到的好，好好的页面中出现一个傻傻的空白iframe，会被骂死的，所以一定要记得iframe要display: none。</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var iframe = $(<span class="string">'&lt;iframe '</span></div><div class="line">    + <span class="string">'frameborder="</span><span class="number">0</span><span class="string">"'</span></div><div class="line">    + <span class="string">'height="</span><span class="number">0</span><span class="string">"'</span></div><div class="line">    + <span class="string">'width="</span><span class="number">0</span><span class="string">"'</span></div><div class="line">    + <span class="string">'name="</span><span class="string">' + id + '</span><span class="string">"'</span></div><div class="line">    + <span class="string">'id="</span><span class="string">' + id + '</span><span class="string">"'</span></div><div class="line">    + <span class="string">'/&gt;'</span>)</div><div class="line">    .appendTo(<span class="string">'body'</span>)</div><div class="line">, form = $(<span class="string">'&lt;form /&gt;'</span>)</div><div class="line">    .attr(&#123;</div><div class="line">        action: <span class="string">'/openmobile/login'</span>,</div><div class="line">        method: <span class="string">'POST'</span>,</div><div class="line">        target: id</div><div class="line">    &#125;)</div><div class="line">    .appendTo(<span class="string">'body'</span>), hiddens = &#123;&#125;;</div><div class="line"></div><div class="line">$.each(&#123;</div><div class="line">        loginType: <span class="string">'meetstudio'</span>,</div><div class="line">        appId: <span class="number">1</span>,</div><div class="line">        account: <span class="string">'amy@meet-future.com'</span>,</div><div class="line">        password: <span class="string">'111111'</span></div><div class="line">    &#125;, <span class="function"><span class="keyword">function</span><span class="params">(_name, _value)</span> &#123;</span></div><div class="line">        hiddens[_name] = $(<span class="string">'&lt;input /&gt;'</span>).attr(&#123;</div><div class="line">        name: _name,</div><div class="line">        value: _value,</div><div class="line">        <span class="built_in">type</span>: <span class="string">'hidden'</span></div><div class="line">    &#125;).appendTo(form);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这只是一个片段，很显然的功能就是构建一个iframe与一个form，插入body中。当然，可怜的form中还被插了许多的type=hidden的input，这些都是一些必要的参数。</p>
+<p>为何iframe是用那么丑陋的方式来写呢？据前辈们介绍，因为这里有一个坑。在低版本的ie中，利用javascript动态插入的iframe，属性很容易broken，这算是一个bug。解决方式就是你最好把整个iframe一次性的插入页面中，或者需要的时候（比如在提交表单时）检查一下iframe的name是否与你预想中的一样，不同的话，再指定一次name。</p>
+<h3 id="从iframe中取到接口返回的结果"><a href="#从iframe中取到接口返回的结果" class="headerlink" title="从iframe中取到接口返回的结果"></a>从iframe中取到接口返回的结果</h3><p>这个网络上有许多解决方案啦。从iframe中读取接口返回的数据，步骤说明如下：</p>
+<ol>
+<li>post 数据到接口时，开启 location.hash 变化的监听器</li>
+<li>后端接口返回时把数据写到父页面的 location.hash 中</li>
+<li>当发现hash有变化时，暂停监听<br>好了，数据到手。</li>
+</ol>
+<p>最后千万合理的使用那个监听器，一直在那循环着，对浏览器和用户的机器可不是什么好事。如果不小心把用户的电脑搞死机了，那一定就悲伤成河了。</p>
+
+	
+	...</div>
+</div>
+
+
+					<footer class="entry-meta">					  
+						<a href="/2013/05/20/coross-domain-problem/" class="more-link"><span class="fa fa-link" aria-hidden="true"></span>  阅读全文</a>	
+					</footer>
+
+				</div>	
+
+             </div>
+		
+            <div class="archive">	  
+				<div id="archives"> 
+				
+					<header class="entry-header">
+						<div class="entry-info" text-transform : capitalize>				     					      	      
+							
+							  <span class="entry-date">
+								  <span class="fa fa-calendar" aria-hidden="true"></span>
+								  2013-05-07						      
+							  </span>
+							  
+							  <span class="author vcard">
+								  <span class="fa fa-user" aria-hidden="true"></span>
+								  <a href="/">Mingyi Liang</a> 	
+							  </span>
+
+
+
+							<span class="comments-link">
+								<span class="fa fa-comments" aria-hidden="true"></span>
+								<span class="ds-thread-count" data-thread-key="2013/05/07/webapp-develop-experience-summary/">暂无评论</span>
+							</span>	
+							
+						</div>	
+									
+						<h3 class="entry-title"> 
+							  <a href="/2013/05/07/webapp-develop-experience-summary/" >WEB APP开发项目总结</a>
+						</h3>
+
+					</header>
+
+					<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="前人的经验"><a href="#前人的经验" class="headerlink" title="前人的经验"></a>前人的经验</h2><p>第一次做WEB APP，自然少不了看些前人总结的一些文章，补充下基本的知识，这里有两篇总结的比较好的文章，对viewpoint、meta、mediaquery、touch事件等基本知识。还有一篇是豆瓣的一位前端在开发豆瓣阅读时的总结，写的非常棒。</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/pifoo/archive/2011/05/28/webkit-webapp.html" target="_blank" rel="external">webapp开发要点</a><br><a href="http://huisecheng.com/blog/2013/01/ugly-tips-in-mobile-f2e-development/" target="_blank" rel="external">在移动浏览器中踩过的坑</a><br><a href="http://lyric.im/best-practice-for-web-app-development/" target="_blank" rel="external">当前 WEB APP 开发的最佳实践</a></p>
+</blockquote>
+<h2 id="弹性盒子模型"><a href="#弹性盒子模型" class="headerlink" title="弹性盒子模型"></a>弹性盒子模型</h2><p>对一个父元素使用display: box其实就是弹性盒子模型的声明，毕竟属于CSS3的东西，使用的时候，需要附带私有前缀。就是诸如-moz-, -webkit-之类。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#father</span> &#123;</div><div class="line">    <span class="attribute">-webkit-display</span>: box;</div><div class="line">    <span class="attribute">-moz-display</span>: box; </div><div class="line">    <span class="attribute">display</span>: box; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>假设父元素下有三个子元素，它们的样式如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#first_boy</span> &#123; <span class="attribute">-webkit-box-flex</span>: <span class="number">2</span>; <span class="attribute">-mox-box-flex</span>: <span class="number">2</span>; <span class="attribute">box-flex</span>: <span class="number">2</span>; &#125;</div><div class="line"><span class="selector-id">#second_boy</span> &#123; <span class="attribute">-webkit-box-flex</span>: <span class="number">1</span>; <span class="attribute">-mox-box-flex</span>: <span class="number">1</span>; <span class="attribute">box-flex</span>: <span class="number">1</span>; &#125;</div><div class="line"><span class="selector-id">#three_boy</span> &#123; <span class="attribute">-webkit-box-flex</span>: <span class="number">1</span>; <span class="attribute">-mox-box-flex</span>: <span class="number">1</span>; <span class="attribute">box-flex</span>: <span class="number">1</span>; &#125;</div></pre></td></tr></table></figure>
+<p>上面的样式解释下，就是将父元素水平分成四等份，其中#first_boy占2份，second_boy和three_boy各占一份。</p>
+<p>下面接着来介绍下在父元素上还有的几个非常厉害的属性</p>
+<blockquote>
+<p>box-orient: 用来确定子元素的方向。是横着排还是竖着走。可选的值有: horizontal | vertical | inline-axis | block-axis | inherit<br>box-direction: 是用来确定子元素的排列顺序，可选值有: normal | reverse | inherit<br>box-align与box-pack都是决定盒子内部剩余空间怎么使用的。在行为效果上就是表现为“对齐”。其中box-align决定了垂直方向上的空间利用，也就是垂直方向上的对齐表现。为了便于记忆，我们可以拿来和CSS2中的vertical-align隐射记忆，两者都有”align”，都是都是垂直方向的对齐；而剩下的box-pack就是水平方向的了。可选参数有: start | end | center | baseline | stretch<br>其中stretch为默认值，为拉伸，也就是父标签高度过高，其孩子元素的高度就多高，以后等高布局不用愁了。start表示顶边对齐，end为底部对齐，center为居中对齐，baseline表示基线（英文字母o,m,n等的底边位置线）对齐<br>box-pack: 决定了父标签水平遗留空间的使用，其可选值有: start | end | center | justify，就大部分的行为表现来说分别对应text-align属性的值：left | right | center | justify</p>
+</blockquote>
+<h2 id="使用localStorage遇到的一些问题"><a href="#使用localStorage遇到的一些问题" class="headerlink" title="使用localStorage遇到的一些问题"></a>使用localStorage遇到的一些问题</h2><blockquote>
+<p>localStorage是同步的，会阻塞页面的渲染<br>对I/O有操作，读取数据消耗的时间随机<br>有大小限制，一般默认为5M，在内存吃紧时会丢失数据</p>
+</blockquote>
+<h2 id="总结一下在这次webapp开发过程中程序和设计上遇到的坑"><a href="#总结一下在这次webapp开发过程中程序和设计上遇到的坑" class="headerlink" title="总结一下在这次webapp开发过程中程序和设计上遇到的坑"></a>总结一下在这次webapp开发过程中程序和设计上遇到的坑</h2><blockquote>
+<p>设计上用了太多的图片，每一个标题文字都用的是图片，直接导致资源文件太多，并且为了适应多屏，图片会被各种拉伸，导致布局起来异常艰难<br>在手机浏览器上对position: fixed支持的不是很好，并且顶部的状态栏设计的是个不规则形状的图片，不能定高。在不同屏幕尺寸下等比拉升后，尤其在横屏时，高度会变得非常高，就一个状态栏就能占满整个屏幕<br>没有考虑到任何硬件加速的 CSS 3 属性的动画效果，所有的动画只能通过传统的DOM换图，导致性能卡死<br>因为主要是在智能终端上做音乐播放功能，完全没有必要使用SoundManager插件去兼容各种情况，应该直接用HTML5的audio API来播放音乐。用了这个插件在各个平台下会导致各种奇怪头疼的问题。</p>
+</blockquote>
+<p>对于audio API，github上依旧有各种对audio api的详细的示例代码 <a href="http://learnshare.github.io/labs/audio/audio-apis.html" target="_blank" rel="external">http://learnshare.github.io/labs/audio/audio-apis.html</a><br>项目地址：<a href="https://github.com/LearnShare/LearnShare.github.io/tree/master/labs/audio" target="_blank" rel="external">https://github.com/LearnShare/LearnShare.github.io/tree/master/labs/audio</a></p>
+
+	
+	...</div>
+</div>
+
+
+					<footer class="entry-meta">					  
+						<a href="/2013/05/07/webapp-develop-experience-summary/" class="more-link"><span class="fa fa-link" aria-hidden="true"></span>  阅读全文</a>	
+					</footer>
+
+				</div>	
+
+             </div>
+		
+
+		<!-- pagination -->
+		<div>
+			<center>
+			
+
+
+			</center>
+		</div>
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+		
+				
+  <div class="form-group has-success has-feedback" id="site_search">
+    <form class="site-search-form">
+        <input type="text" id="st-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control" />
+    </form>
+  </div>  
+
+			
+				<style type="text/css">
+  .cls_container{height:24px;overflow:hidden;}
+  .cls_container ul{list-style-type:none;margin:0;padding:0;margin-left:0px;}
+  .cls_container ul li{height:24px;line-height:24px;float:left;display:inline;}
+</style>
+
+<div class="widget">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">本站公告</h4>
+
+	<div id="myscroll" class="cls_container">
+		<ul>
+		  <li><span style="color:red"><i class="fa fa-warning"></i>欢迎访问本站!</span></li></br>
+		  <li><span style="color:red"><i class="fa fa-warning"></i>本站内容已经全部进行迁移</span></li></br>
+		  <li><span style="color:red"><i class="fa fa-warning"></i>谷歌浏览器访问本站效果最佳!</span></li></br>
+		  <li><span style="color:red"><i class="fa fa-warning"></i>若URL失效，请使用本站内部搜索</span></li></br>
+		</ul>
+	</div>
+
+	<div id="showhint"></div>
+</div>
+
+<script type="text/javascript">
+	function $(element){
+	 if(arguments.length>1){
+	  for(var i=0,length=arguments.length,elements=[];i<length;i++){
+	   elements.push($(arguments[i]));
+	  }
+	  return elements;
+	 }
+	 if(typeof element=="string"){
+	  return document.getElementById(element);
+	 }else{
+	  return element;
+	 }
+	}
+	var Class={
+	 create:function(){
+	  return function(){
+	   this.initialize.apply(this,arguments);
+	  }
+	 }
+	}
+	Function.prototype.bind=function(object){
+	 var method=this;
+	 return function(){
+	  method.apply(object,arguments);
+	 }
+	}
+	var Scroll=Class.create();
+	Scroll.prototype={
+	 initialize:function(element,height){
+	  this.element=$(element);
+	  this.element.innerHTML+=this.element.innerHTML;
+	  this.height=height;
+	  this.maxHeight=this.element.scrollHeight/2;
+	  this.counter=0;
+	  this.scroll();
+	  this.timer="";
+	  this.element.onmouseover=this.stop.bind(this);
+	  this.element.onmouseout=function(){this.timer=setTimeout(this.scroll.bind(this),1000);}.bind(this);
+	 },
+	 scroll:function(){
+	  if(this.element.scrollTop<this.maxHeight){
+	   this.element.scrollTop++;
+	   this.counter++;
+	  }else{
+	   this.element.scrollTop=0;
+	   this.counter=0;
+	  }
+	  if(this.counter<this.height){
+	   this.timer=setTimeout(this.scroll.bind(this),20);
+	  }else{
+	   this.counter=0;
+	   this.timer=setTimeout(this.scroll.bind(this),3000);
+	  }
+	 },
+	 stop:function(){
+	  clearTimeout(this.timer);
+	 }
+	}
+	var myscroll=new Scroll("myscroll",24);
+</script>
+
+			
+				
+			
+				
+	<div class="widget">
+		<h4 style="font-weight: bold; color: #333 ">标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/项目总结/">项目总结<span>2</span></a></li>
+		
+			<li><a href="/tags/前端-跨域/">前端, 跨域<span>1</span></a></li>
+		
+		 
+		</ul>
+	</div>
+
+
+			
+				
+<div class="widget">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">友情链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li style="font-size:14px"><i class="fa fa-share"></i><a href="http://blog.csdn.net/ei__nino" title="VP金." target="_blank"]);">EI__Nino的专栏</a></li>
+	
+		<li style="font-size:14px"><i class="fa fa-github"></i><a href="http://leechan.me/" title="诚哥" target="_blank"]);">诚哥的猜想</a></li>
+	
+	</ul>
+</div>
+
+
+			
+				<div class="widget">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">近期评论</h4>
+	<ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="0" data-show-admin="1" data-excerpt-length="100" ></ul>
+	
+	<script type="text/javascript">
+	    var duoshuoQuery = { short_name: 'mingyi-me' };
+	    (function() {
+	    var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+
+</div>
+
+
+
+			
+				<section id="recent-visitors" class="widget widget_recent_comments">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">最近访客</h4>
+  	<div class="panelbody clearfix"><ul class="ds-recent-visitors" data-num-items="30"></ul></div>
+</section>
+			  
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  Mingyi Liang &copy; 2013-2016.
+  
+       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, <a href="https://swiftype.com/" target="_blank">Swiftype</a> and <a href="http://www.qiniu.com/" target="_blank">七牛云存储</a>.
+      <i class="fa fa-sitemap %>"></i> <a href="/sitemap.xml" target="_blank"> 站点地图</a>. <a href="http://www.miitbeian.gov.cn/">粤ICP备15038546号</a>.
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255163192'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1255163192' type='text/javascript'%3E%3C/script%3E"));</script>   
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'YYG5W2xNQTns7U8J3YqW','2.0.0');
+  </script>
+
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>
