@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mingyi.js.org/"/>
-  <updated>2016-11-30T15:06:19.727Z</updated>
+  <updated>2016-12-02T13:19:30.560Z</updated>
   <id>http://mingyi.js.org/</id>
   
   <author>
@@ -16,11 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>最大子序列和</title>
+    <link href="http://mingyi.js.org/2016/12/02/Maximum-Subsequence-Sum/"/>
+    <id>http://mingyi.js.org/2016/12/02/Maximum-Subsequence-Sum/</id>
+    <published>2016-12-02T21:14:16.000Z</published>
+    <updated>2016-12-02T13:19:30.560Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  main.c</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by Mingyi on 2016/11/30.</span></div><div class="line"><span class="comment">//  Copyright © 2016年 Mingyi Liang. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution1</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span></span>; <span class="comment">// O(N3)</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution2</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span></span>; <span class="comment">// O(N2)</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution3</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span></span>; <span class="comment">// O(N)</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">-4</span>, <span class="number">5</span>&#125;;</div><div class="line">    <span class="keyword">time_t</span> tstart, tend;</div><div class="line">    tstart = clock();</div><div class="line">    <span class="keyword">int</span> result = solution1(a, <span class="number">5</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; <span class="number">1000000</span>; c++) &#123;</div><div class="line">        solution1(a, <span class="number">5</span>);</div><div class="line">    &#125;</div><div class="line">    tend = clock();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"result is: %d\n"</span>, result);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"cost time: %f\n"</span>, (<span class="keyword">double</span>)(tend - tstart) / CLOCKS_PER_SEC);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution1</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x, y, maxSum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; N; x++) &#123;</div><div class="line">        <span class="keyword">for</span> (y = x; y &lt; N; y++ ) &#123;</div><div class="line">            <span class="keyword">int</span> k, thisSum = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (k = x; k &lt;= y; k++) &#123;</div><div class="line">                thisSum += a[k];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (thisSum &gt; maxSum) &#123;</div><div class="line">                maxSum = thisSum;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution2</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x, y, maxSum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; N; x++) &#123;</div><div class="line">        <span class="keyword">int</span> thisSum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (y = x; y &lt; N; y++) &#123;</div><div class="line">            thisSum += a[y];</div><div class="line">            <span class="keyword">if</span> (thisSum &gt; maxSum) &#123;</div><div class="line">                maxSum = thisSum;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution3</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x, maxSum = <span class="number">0</span>, thisSum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; N; x++) &#123;</div><div class="line">        thisSum += a[x];</div><div class="line">        <span class="keyword">if</span> (thisSum &gt; maxSum) &#123;</div><div class="line">            maxSum = thisSum;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (thisSum &lt; <span class="number">0</span>) &#123;</div><div class="line">            thisSum = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构, 算法" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>做头像修改组件后的记录</title>
     <link href="http://mingyi.js.org/2013/12/09/potrait-record/"/>
     <id>http://mingyi.js.org/2013/12/09/potrait-record/</id>
     <published>2013-12-09T13:55:22.000Z</published>
-    <updated>2016-11-30T15:06:19.727Z</updated>
+    <updated>2016-12-02T13:19:30.560Z</updated>
     
     <content type="html"><![CDATA[<p>最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。那有没有办法悄悄的帮用户刷掉缓存呢?</p>
 <p>看了看QQ空间的做法，在后端会存一个修改头像的时间戳，前端显示自己头像的地方，会加上后端返回的这个时间戳，每次更新头像的时候，后端同时更新这个时间戳。这办法还是挺靠谱的。哈哈，贴吧最终也是这么做的。</p>
@@ -46,7 +66,7 @@
     <link href="http://mingyi.js.org/2013/05/20/coross-domain-problem/"/>
     <id>http://mingyi.js.org/2013/05/20/coross-domain-problem/</id>
     <published>2013-05-20T15:06:23.000Z</published>
-    <updated>2016-11-30T15:06:19.727Z</updated>
+    <updated>2016-12-02T13:19:30.560Z</updated>
     
     <content type="html"><![CDATA[<p>与后端接口跨域数据通信算是一个比较常见的情景，并且现在也已经有了非常多的解决方案，在此我就来整理下自己对于跨域问题的解决方案。</p>
 <p>与后端接口数据通信主要分为HTTP GET和POST两种，说到它们之间的区别，表面上的区别就不讲了，太基础了，什么长度限制等等自己查下就清楚了。这里主要说下它们的语义：</p>
@@ -86,7 +106,7 @@
     <link href="http://mingyi.js.org/2013/05/07/webapp-develop-experience-summary/"/>
     <id>http://mingyi.js.org/2013/05/07/webapp-develop-experience-summary/</id>
     <published>2013-05-07T15:13:37.000Z</published>
-    <updated>2016-11-30T15:06:19.727Z</updated>
+    <updated>2016-12-02T13:19:30.560Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前人的经验"><a href="#前人的经验" class="headerlink" title="前人的经验"></a>前人的经验</h2><p>第一次做WEB APP，自然少不了看些前人总结的一些文章，补充下基本的知识，这里有两篇总结的比较好的文章，对viewpoint、meta、mediaquery、touch事件等基本知识。还有一篇是豆瓣的一位前端在开发豆瓣阅读时的总结，写的非常棒。</p>
 <blockquote>
