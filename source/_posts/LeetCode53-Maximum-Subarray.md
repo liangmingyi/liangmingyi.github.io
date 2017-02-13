@@ -1,4 +1,4 @@
-title: LeetCode53 Maximum Subarray 
+title: LeetCode53. Maximum Subarray 
 date: 2016-12-02 21:14:16 
 tags: 数据结构, 算法 
 ---
@@ -8,7 +8,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
 For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
 the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 
-穷举法 时间复杂度O(N3)
+### 穷举法 时间复杂度O(N3)
 ```
 int solution(int a[], int N) {
     int x, y, maxSum = 0;
@@ -28,7 +28,7 @@ int solution(int a[], int N) {
 ```
 
 
-穷举法优化冗余的求和步骤 时间复杂度O(N2)
+### 穷举法优化冗余的求和步骤 时间复杂度O(N2)
 ```
 int solution(int a[], int N) {
     int x, y, maxSum = 0;
@@ -45,7 +45,7 @@ int solution(int a[], int N) {
 }
 ```
 
-贪心法 时间复杂度O(N)
+### 贪心法 时间复杂度O(N)
 ```
 int solution(int a[], int N) {
     int x, maxSum = 0, thisSum = 0;
@@ -60,5 +60,4 @@ int solution(int a[], int N) {
     }
     return maxSum;
 }
-
 ```
