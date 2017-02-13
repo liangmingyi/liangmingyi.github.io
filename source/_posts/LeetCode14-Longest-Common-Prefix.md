@@ -5,7 +5,7 @@ tags: 数据结构, 算法
 
 Write a function to find the longest common prefix string amongst an array of strings.
 
-### 暴力穷举
+#### 暴力穷举
 先找出最短的一个字符串，然后遍历这个字符串的每个字符，与其余每个字符串对应的位置做比较，直到找到不同时中止，时间复杂度O(N*M)
 ```
 class Solution {
@@ -46,7 +46,7 @@ public:
 };
 ```
 
-### 前缀树
+#### 前缀树
 时间复杂度O(N*M)
 ```
 class Solution {

@@ -15,7 +15,7 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 
 
 
-### 扫一遍字符串即可得到需要的结果 时间复杂度O(N)
+#### 扫一遍字符串即可得到需要的结果 时间复杂度O(N)
 ```
 class Solution {
 public:
