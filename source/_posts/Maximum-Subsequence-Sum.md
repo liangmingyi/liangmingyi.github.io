@@ -1,38 +1,16 @@
-title: 最大子序列和
+title: [LeetCode]53. Maximum Subarray
 date: 2016-12-02 21:14:16
 tags: 数据结构, 算法
 ---
 
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+穷举法 时间复杂度O(N3)
 ```
-//
-//  main.c
-//
-//  Created by Mingyi on 2016/11/30.
-//  Copyright © 2016年 Mingyi Liang. All rights reserved.
-//
-
-#include <stdio.h>
-#include <time.h>
-
-int solution1(int a[], int N); // O(N3)
-int solution2(int a[], int N); // O(N2)
-int solution3(int a[], int N); // O(N)
-
-int main() {
-    int a[] = {1, 2, 3, -4, 5};
-    time_t tstart, tend;
-    tstart = clock();
-    int result = solution1(a, 5);
-    for (int c = 0; c < 1000000; c++) {
-        solution1(a, 5);
-    }
-    tend = clock();
-    printf("result is: %d\n", result);
-    printf("cost time: %f\n", (double)(tend - tstart) / CLOCKS_PER_SEC);
-    return 0;
-}
-
-int solution1(int a[], int N) {
+int solution(int a[], int N) {
     int x, y, maxSum = 0;
     for (x = 0; x < N; x++) {
         for (y = x; y < N; y++ ) {
@@ -47,8 +25,12 @@ int solution1(int a[], int N) {
     }
     return maxSum;
 }
+```
 
-int solution2(int a[], int N) {
+
+穷举法优化冗余的求和步骤 时间复杂度O(N2)
+```
+int solution(int a[], int N) {
     int x, y, maxSum = 0;
     for (x = 0; x < N; x++) {
         int thisSum = 0;
@@ -61,9 +43,11 @@ int solution2(int a[], int N) {
     }
     return maxSum;
 }
+```
 
-
-int solution3(int a[], int N) {
+贪心法 时间复杂度O(N)
+```
+int solution(int a[], int N) {
     int x, maxSum = 0, thisSum = 0;
     for (x = 0; x < N; x++) {
         thisSum += a[x];
