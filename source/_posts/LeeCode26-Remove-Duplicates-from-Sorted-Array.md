@@ -1,6 +1,6 @@
 title: LeeCode26. Remove Duplicates from Sorted Array
 date: 2017-02-14 19:20:04
-tags: 数据结构, 算法
+tags: 数据结构 算法
 ---
 
 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.

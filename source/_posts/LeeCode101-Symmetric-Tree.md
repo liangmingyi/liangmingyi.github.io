@@ -1,6 +1,6 @@
 title: LeeCode101. Symmetric Tree
 date: 2017-02-14 20:36:36
-tags: 数据结构, 算法
+tags: 数据结构 算法
 ---
 
 Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
