@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mingyi.js.org/"/>
-  <updated>2017-02-14T16:06:52.698Z</updated>
+  <updated>2017-02-14T16:10:39.549Z</updated>
   <id>http://mingyi.js.org/</id>
   
   <author>
@@ -16,11 +16,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeeCode136. Single Number</title>
+    <link href="http://mingyi.js.org/2017/02/15/LeeCode136-Single-Number/"/>
+    <id>http://mingyi.js.org/2017/02/15/LeeCode136-Single-Number/</id>
+    <published>2017-02-15T00:08:52.000Z</published>
+    <updated>2017-02-14T16:10:39.549Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
+<p>Note:<br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            result ^= nums[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Your algorithm should have 
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeeCode125. Valid Palindrome</title>
     <link href="http://mingyi.js.org/2017/02/15/LeeCode125-Valid-Palindrome/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode125-Valid-Palindrome/</id>
     <published>2017-02-15T00:05:29.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
 <p>For example,<br>“A man, a plan, a canal: Panama” is a palindrome.<br>“race a car” is not a palindrome.</p>
@@ -47,7 +73,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode110-Balanced-Binary-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode110-Balanced-Binary-Tree/</id>
     <published>2017-02-14T23:31:42.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, determine if it is height-balanced.</p>
 <p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
@@ -72,7 +98,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode104-Maximum-Depth-of-Binary-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode104-Maximum-Depth-of-Binary-Tree/</id>
     <published>2017-02-14T22:56:02.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, find its maximum depth.</p>
 <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
@@ -98,7 +124,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode101-Symmetric-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode101-Symmetric-Tree/</id>
     <published>2017-02-14T20:36:36.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
 <p>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:</p>
@@ -127,7 +153,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode100-Same-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode100-Same-Tree/</id>
     <published>2017-02-14T19:58:25.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given two binary trees, write a function to check if they are equal or not.</p>
 <p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
@@ -153,7 +179,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode88-Merge-Sorted-Array/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode88-Merge-Sorted-Array/</id>
     <published>2017-02-14T19:48:50.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
 <p>Note:<br>You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.</p>
@@ -179,7 +205,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode26-Remove-Duplicates-from-Sorted-Array/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode26-Remove-Duplicates-from-Sorted-Array/</id>
     <published>2017-02-14T19:20:04.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
 <p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
@@ -207,7 +233,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode3-Longest-Substring-Without-Repeating-Characters/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode3-Longest-Substring-Without-Repeating-Characters/</id>
     <published>2017-02-14T01:26:00.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, find the length of the longest substring without repeating characters.</p>
 <p>Examples:</p>
@@ -237,7 +263,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeetCode2-Add-Two-Numbers/"/>
     <id>http://mingyi.js.org/2017/02/14/LeetCode2-Add-Two-Numbers/</id>
     <published>2017-02-14T01:21:48.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
@@ -262,7 +288,7 @@
     <link href="http://mingyi.js.org/2017/02/13/LeetCode14-Longest-Common-Prefix/"/>
     <id>http://mingyi.js.org/2017/02/13/LeetCode14-Longest-Common-Prefix/</id>
     <published>2017-02-13T23:56:23.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
 <h4 id="暴力穷举"><a href="#暴力穷举" class="headerlink" title="暴力穷举"></a>暴力穷举</h4><p>先找出最短的一个字符串，然后遍历这个字符串的每个字符，与其余每个字符串对应的位置做比较，直到找到不同时中止，时间复杂度O(N*M)<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">string</span> longestCommonPrefix(vector&lt;<span class="keyword">string</span>&gt;&amp; strs) &#123;</div><div class="line">        <span class="built_in">if</span> (strs.<span class="built_in">size</span>() == <span class="number">0</span>)</div><div class="line">            <span class="built_in">return</span> <span class="string">""</span>;</div><div class="line">        <span class="built_in">if</span> (strs.<span class="built_in">size</span>() == <span class="number">1</span>)</div><div class="line">            <span class="built_in">return</span> strs[<span class="number">0</span>];</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> minlenstrpos = <span class="number">-1</span>, minlen = <span class="number">1000000</span>;</div><div class="line">        <span class="keyword">string</span> result = <span class="string">""</span>;</div><div class="line">        <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs.<span class="built_in">size</span>(); i++) &#123;</div><div class="line">            <span class="built_in">if</span> (strs[i].length() &lt; minlen) &#123;</div><div class="line">                minlen = strs[i].length();</div><div class="line">                minlenstrpos = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">        <span class="built_in">for</span> (; j &lt; strs[minlenstrpos].length(); j++) &#123;</div><div class="line">            <span class="keyword">char</span> cur = strs[minlenstrpos][j];</div><div class="line">            <span class="built_in">for</span> (<span class="keyword">auto</span> str: strs) &#123;</div><div class="line">                <span class="built_in">if</span> (str[j] == cur)</div><div class="line">                    <span class="built_in">continue</span>;</div><div class="line">                <span class="built_in">else</span> &#123;</div><div class="line">                    result = strs[minlenstrpos].substr(<span class="number">0</span>, j);</div><div class="line">                    j = strs[minlenstrpos].length() + <span class="number">1</span>;</div><div class="line">                    <span class="built_in">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="built_in">if</span> (j == strs[minlenstrpos].length()) </div><div class="line">            result = strs[minlenstrpos];</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
@@ -288,7 +314,7 @@
     <link href="http://mingyi.js.org/2016/12/02/LeetCode53-Maximum-Subarray/"/>
     <id>http://mingyi.js.org/2016/12/02/LeetCode53-Maximum-Subarray/</id>
     <published>2016-12-02T21:14:16.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.549Z</updated>
     
     <content type="html"><![CDATA[<p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
 <p>For example, given the array [-2,1,-3,4,-1,2,1,-5,4],<br>the contiguous subarray [4,-1,2,1] has the largest sum = 6.</p>
@@ -315,7 +341,7 @@
     <link href="http://mingyi.js.org/2013/12/09/potrait-record/"/>
     <id>http://mingyi.js.org/2013/12/09/potrait-record/</id>
     <published>2013-12-09T13:55:22.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.553Z</updated>
     
     <content type="html"><![CDATA[<p>最近在做头像上传的组件，遇到比较头疼的是当用户修改完头像后去CDN缓存的问题。因为百度的头像系统每个用户的头像地址是唯一的固定不变的，CDN那边是可以做到当用户修改头像时在小于1s内洗掉原来旧头像的缓存，但CDN缓存更新了，浏览器可不知道啊，除非按F5或ctrl+F5会重新去cdn那对比，然后再拉取新的头像回来。最龊的办法就是，头像保存后reload下页面，相当于帮用户按下F5，但这样的体验很烂。那有没有办法悄悄的帮用户刷掉缓存呢?</p>
 <p>看了看QQ空间的做法，在后端会存一个修改头像的时间戳，前端显示自己头像的地方，会加上后端返回的这个时间戳，每次更新头像的时候，后端同时更新这个时间戳。这办法还是挺靠谱的。哈哈，贴吧最终也是这么做的。</p>
@@ -341,7 +367,7 @@
     <link href="http://mingyi.js.org/2013/05/20/coross-domain-problem/"/>
     <id>http://mingyi.js.org/2013/05/20/coross-domain-problem/</id>
     <published>2013-05-20T15:06:23.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.553Z</updated>
     
     <content type="html"><![CDATA[<p>与后端接口跨域数据通信算是一个比较常见的情景，并且现在也已经有了非常多的解决方案，在此我就来整理下自己对于跨域问题的解决方案。</p>
 <p>与后端接口数据通信主要分为HTTP GET和POST两种，说到它们之间的区别，表面上的区别就不讲了，太基础了，什么长度限制等等自己查下就清楚了。这里主要说下它们的语义：</p>
@@ -383,7 +409,7 @@
     <link href="http://mingyi.js.org/2013/05/07/webapp-develop-experience-summary/"/>
     <id>http://mingyi.js.org/2013/05/07/webapp-develop-experience-summary/</id>
     <published>2013-05-07T15:13:37.000Z</published>
-    <updated>2017-02-14T16:06:52.698Z</updated>
+    <updated>2017-02-14T16:10:39.553Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前人的经验"><a href="#前人的经验" class="headerlink" title="前人的经验"></a>前人的经验</h2><p>第一次做WEB APP，自然少不了看些前人总结的一些文章，补充下基本的知识，这里有两篇总结的比较好的文章，对viewpoint、meta、mediaquery、touch事件等基本知识。还有一篇是豆瓣的一位前端在开发豆瓣阅读时的总结，写的非常棒。</p>
 <blockquote>
