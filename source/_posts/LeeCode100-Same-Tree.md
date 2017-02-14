@@ -1,6 +1,8 @@
 title: LeeCode100. Same Tree
 date: 2017-02-14 19:58:25
-tags: 数据结构 算法
+tags: 
+- 数据结构
+- 算法
 ---
 
 Given two binary trees, write a function to check if they are equal or not.

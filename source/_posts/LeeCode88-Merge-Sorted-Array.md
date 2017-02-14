@@ -1,6 +1,8 @@
 title: LeeCode88. Merge Sorted Array
 date: 2017-02-14 19:48:50
-tags: 数据结构 算法
+tags: 
+- 数据结构
+- 算法
 ---
 
 Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.

@@ -1,6 +1,8 @@
 title: LeeCode3. Longest Substring Without Repeating Characters
 date: 2017-02-14 01:26:00
-tags: 数据结构 算法
+tags: 
+- 数据结构
+- 算法
 ---
 
 Given a string, find the length of the longest substring without repeating characters.

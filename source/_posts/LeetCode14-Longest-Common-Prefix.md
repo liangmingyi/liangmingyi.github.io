@@ -1,6 +1,8 @@
 title: LeetCode14. Longest Common Prefix
 date: 2017-02-13 23:56:23
-tags: 数据结构 算法 
+tags: 
+- 数据结构
+- 算法 
 ---
 
 Write a function to find the longest common prefix string amongst an array of strings.

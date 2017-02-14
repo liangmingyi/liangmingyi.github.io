@@ -1,6 +1,8 @@
 title: LeetCode53. Maximum Subarray 
 date: 2016-12-02 21:14:16 
-tags: 数据结构 算法 
+tags: 
+- 数据结构
+- 算法
 ---
 
 Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
