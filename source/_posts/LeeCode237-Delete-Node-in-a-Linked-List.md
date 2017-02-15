@@ -1,6 +1,8 @@
 title: LeeCode237. Delete Node in a Linked List
 date: 2017-02-15 18:47:40
 tags:
+- 数据结构
+- 算法
 ---
 Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
 
