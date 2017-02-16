@@ -1,6 +1,8 @@
 title: LeeCode303. Range Sum Query - Immutable
 date: 2017-02-15 23:42:20
 tags:
+- 数据结构
+- 算法
 ---
 Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
 

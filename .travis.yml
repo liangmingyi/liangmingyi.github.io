@@ -33,6 +33,6 @@ after_success:
 - cp -r ../public/* .
 - cp ../CNAME .
 - git add -A .
-- git commit -m 'Site updated'
+- git commit -m 'trigger by Travis CI'
 - git branch -m master
 - git push -q -u origin master
