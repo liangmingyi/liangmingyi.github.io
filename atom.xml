@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mingyi.js.org/"/>
-  <updated>2017-02-15T15:43:57.579Z</updated>
+  <updated>2017-02-16T10:12:04.626Z</updated>
   <id>http://mingyi.js.org/</id>
   
   <author>
@@ -16,11 +16,89 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeeCode278. First Bad Version</title>
+    <link href="http://mingyi.js.org/2017/02/16/LeeCode278-First-Bad-Version/"/>
+    <id>http://mingyi.js.org/2017/02/16/LeeCode278-First-Bad-Version/</id>
+    <published>2017-02-16T18:05:38.000Z</published>
+    <updated>2017-02-16T10:12:04.626Z</updated>
+    
+    <content type="html"><![CDATA[<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
+<p>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.</p>
+<p>You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</p>
+<h4 id="二分查找，需要特别注意的是-left-right-相加可能会超过-INT-MAX，所以需要转换成表示范围更大的数据类型，不然会有溢出的可能"><a href="#二分查找，需要特别注意的是-left-right-相加可能会超过-INT-MAX，所以需要转换成表示范围更大的数据类型，不然会有溢出的可能" class="headerlink" title="二分查找，需要特别注意的是 left + right 相加可能会超过 INT_MAX，所以需要转换成表示范围更大的数据类型，不然会有溢出的可能"></a>二分查找，需要特别注意的是 left + right 相加可能会超过 INT_MAX，所以需要转换成表示范围更大的数据类型，不然会有溢出的可能</h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// Forward declaration of isBadVersion API.</div><div class="line">bool isBadVersion(<span class="built_in">int</span> version);</div><div class="line"></div><div class="line">class Solution &#123;</div><div class="line">publ<span class="symbol">ic:</span></div><div class="line">    <span class="built_in">int</span> firstBadVersion(<span class="built_in">int</span> <span class="built_in">n</span>) &#123;</div><div class="line">        <span class="built_in">int</span> <span class="built_in">left</span> = <span class="number">1</span>, <span class="built_in">right</span> = <span class="built_in">n</span>, <span class="built_in">mid</span> = (<span class="built_in">left</span> + <span class="built_in">right</span>) / <span class="number">2</span>;</div><div class="line">        while (<span class="built_in">left</span> &lt;= <span class="built_in">right</span>) &#123;</div><div class="line">            <span class="built_in">mid</span> = (unsigned <span class="built_in">int</span>)(<span class="built_in">left</span> + <span class="built_in">right</span>) / <span class="number">2</span>;</div><div class="line">            <span class="built_in">if</span> (isBadVersion(<span class="built_in">mid</span>)) &#123;</div><div class="line">                <span class="built_in">if</span> (<span class="built_in">mid</span> == <span class="number">1</span> || (<span class="built_in">mid</span> &gt; <span class="number">1</span> &amp;&amp; !isBadVersion(<span class="built_in">mid</span> - <span class="number">1</span>))) &#123;</div><div class="line">                    break;</div><div class="line">                &#125; else &#123;</div><div class="line">                    <span class="built_in">right</span> = <span class="built_in">mid</span> - <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">            &#125; else &#123;</div><div class="line">                <span class="built_in">left</span> = <span class="built_in">mid</span> + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        return <span class="built_in">mid</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails 
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeeCode283. Move Zeroes</title>
+    <link href="http://mingyi.js.org/2017/02/16/LeeCode283-Move-Zeroes/"/>
+    <id>http://mingyi.js.org/2017/02/16/LeeCode283-Move-Zeroes/</id>
+    <published>2017-02-16T17:31:11.000Z</published>
+    <updated>2017-02-16T10:12:04.626Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
+<p>Note:<br>You must do this in-place without making a copy of the array.<br>Minimize the total number of operations.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> s = nums.size(), cur = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] != <span class="number">0</span>) &#123;</div><div class="line">                nums[cur++] = nums[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span> (cur &lt; s) &#123;</div><div class="line">            nums[cur++] = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeeCode268. Missing Number</title>
+    <link href="http://mingyi.js.org/2017/02/16/LeeCode268-Missing-Number/"/>
+    <id>http://mingyi.js.org/2017/02/16/LeeCode268-Missing-Number/</id>
+    <published>2017-02-16T16:34:32.000Z</published>
+    <updated>2017-02-16T10:12:04.626Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
+<p>For example,<br>Given nums = [0, 1, 3] return 2.</p>
+<p>Note:<br>Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> s = nums.size();</div><div class="line">        nums[s] = <span class="number">-1</span>;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (i &lt; s) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] != <span class="number">-1</span> &amp;&amp; nums[i] != i) &#123;</div><div class="line">                swap(nums[i], nums[nums[i]]);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> result = nums.size();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[j] == <span class="number">-1</span>) &#123;</div><div class="line">                result = j;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a, <span class="keyword">int</span> &amp;b)</span> </span>&#123;</div><div class="line">        a = a ^ b;</div><div class="line">        b = a ^ b;</div><div class="line">        a = a ^ b;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.&lt;/p&gt;
+&lt;p&gt;For example,&lt;b
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeeCode303. Range Sum Query - Immutable</title>
     <link href="http://mingyi.js.org/2017/02/15/LeeCode303-Range-Sum-Query-Immutable/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode303-Range-Sum-Query-Immutable/</id>
     <published>2017-02-15T23:42:20.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.</p>
 <p>Example:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given nums = [<span class="number">-2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">-5</span>, <span class="number">2</span>, <span class="number">-1</span>]</div><div class="line"></div><div class="line">sumRange(<span class="number">0</span>, <span class="number">2</span>) -&gt; <span class="number">1</span></div><div class="line">sumRange(<span class="number">2</span>, <span class="number">5</span>) -&gt; <span class="number">-1</span></div><div class="line">sumRange(<span class="number">0</span>, <span class="number">5</span>) -&gt; <span class="number">-3</span></div></pre></td></tr></table></figure></p>
@@ -42,7 +120,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode263-Ugly-Number/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode263-Ugly-Number/</id>
     <published>2017-02-15T23:10:58.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Write a program to check whether a given number is an ugly number.</p>
 <p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.</p>
@@ -69,7 +147,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode232-Implement-Queue-using-Stacks/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode232-Implement-Queue-using-Stacks/</id>
     <published>2017-02-15T22:47:05.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Implement the following operations of a queue using stacks.</p>
 <p>push(x) – Push element x to the back of queue.<br>pop() – Removes the element from in front of queue.<br>peek() – Get the front element.<br>empty() – Return whether the queue is empty.<br>Notes:<br>You must use only standard operations of a stack – which means only push to top, peek/pop from top, size, and is empty operations are valid.<br>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.<br>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</p>
@@ -95,7 +173,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode237-Delete-Node-in-a-Linked-List/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode237-Delete-Node-in-a-Linked-List/</id>
     <published>2017-02-15T18:47:40.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
 <p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
@@ -120,7 +198,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode231-Power-of-Two/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode231-Power-of-Two/</id>
     <published>2017-02-15T17:42:12.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer, write a function to determine if it is a power of two.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfTwo</span>(<span class="params"><span class="keyword">int</span> n</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">return</span> !(n &amp; (n - <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
@@ -144,7 +222,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode155-Min-Stack/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode155-Min-Stack/</id>
     <published>2017-02-15T17:26:11.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 <p>push(x) – Push element x onto stack.<br>pop() – Removes the element on top of the stack.<br>top() – Get the top element.<br>getMin() – Retrieve the minimum element in the stack.<br>Example:<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">M<span class="keyword">in</span>Stack <span class="keyword">min</span>Stack = new M<span class="keyword">in</span>Stack();</div><div class="line"><span class="keyword">min</span>Stack.push(-<span class="number">2</span>);</div><div class="line"><span class="keyword">min</span>Stack.push(<span class="number">0</span>);</div><div class="line"><span class="keyword">min</span>Stack.push(-<span class="number">3</span>);</div><div class="line"><span class="keyword">min</span>Stack.getM<span class="keyword">in</span>();   --&gt; Returns -<span class="number">3</span>.</div><div class="line"><span class="keyword">min</span>Stack.pop();</div><div class="line"><span class="keyword">min</span>Stack.top();      --&gt; Returns <span class="number">0</span>.</div><div class="line"><span class="keyword">min</span>Stack.getM<span class="keyword">in</span>();   --&gt; Returns -<span class="number">2</span>.</div></pre></td></tr></table></figure></p>
@@ -170,7 +248,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode234-Palindrome-Linked-List/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode234-Palindrome-Linked-List/</id>
     <published>2017-02-15T14:15:49.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a singly linked list, determine if it is a palindrome.</p>
 <p>Follow up:<br>Could you do it in O(n) time and O(1) space?</p>
@@ -197,7 +275,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode141-Linked-List-Cycle/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode141-Linked-List-Cycle/</id>
     <published>2017-02-15T00:29:00.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a linked list, determine if it has a cycle in it.</p>
 <p>Follow up:<br>Can you solve it without using extra space?</p>
@@ -223,7 +301,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode136-Single-Number/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode136-Single-Number/</id>
     <published>2017-02-15T00:08:52.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
 <p>Note:<br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
@@ -249,7 +327,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode125-Valid-Palindrome/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode125-Valid-Palindrome/</id>
     <published>2017-02-15T00:05:29.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
 <p>For example,<br>“A man, a plan, a canal: Panama” is a palindrome.<br>“race a car” is not a palindrome.</p>
@@ -276,7 +354,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode110-Balanced-Binary-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode110-Balanced-Binary-Tree/</id>
     <published>2017-02-14T23:31:42.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, determine if it is height-balanced.</p>
 <p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
@@ -301,7 +379,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode104-Maximum-Depth-of-Binary-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode104-Maximum-Depth-of-Binary-Tree/</id>
     <published>2017-02-14T22:56:02.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, find its maximum depth.</p>
 <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
@@ -327,7 +405,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode101-Symmetric-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode101-Symmetric-Tree/</id>
     <published>2017-02-14T20:36:36.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
 <p>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:</p>
@@ -356,7 +434,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode100-Same-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode100-Same-Tree/</id>
     <published>2017-02-14T19:58:25.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given two binary trees, write a function to check if they are equal or not.</p>
 <p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
@@ -382,7 +460,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode88-Merge-Sorted-Array/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode88-Merge-Sorted-Array/</id>
     <published>2017-02-14T19:48:50.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
 <p>Note:<br>You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.</p>
@@ -408,7 +486,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode26-Remove-Duplicates-from-Sorted-Array/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode26-Remove-Duplicates-from-Sorted-Array/</id>
     <published>2017-02-14T19:20:04.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
 <p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
@@ -436,7 +514,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode3-Longest-Substring-Without-Repeating-Characters/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode3-Longest-Substring-Without-Repeating-Characters/</id>
     <published>2017-02-14T01:26:00.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
+    <updated>2017-02-16T10:12:04.626Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, find the length of the longest substring without repeating characters.</p>
 <p>Examples:</p>
@@ -451,84 +529,6 @@
       &lt;p&gt;Given a string, find the length of the longest substring without repeating characters.&lt;/p&gt;
 &lt;p&gt;Examples:&lt;/p&gt;
 &lt;p&gt;Given “abcabcbb”, the answ
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode2. Add Two Numbers</title>
-    <link href="http://mingyi.js.org/2017/02/14/LeetCode2-Add-Two-Numbers/"/>
-    <id>http://mingyi.js.org/2017/02/14/LeetCode2-Add-Two-Numbers/</id>
-    <published>2017-02-14T01:21:48.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
-    
-    <content type="html"><![CDATA[<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8</p>
-<h4 id="大数相加"><a href="#大数相加" class="headerlink" title="大数相加"></a>大数相加</h4><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * <span class="type">Definition</span> <span class="keyword">for</span> singly-linked <span class="built_in">list</span>.</div><div class="line"> * <span class="keyword">struct</span> <span class="type">ListNode</span> &#123;</div><div class="line"> *     <span class="built_in">int</span> <span class="keyword">val</span>;</div><div class="line"> *     <span class="type">ListNode</span> *next;</div><div class="line"> *     <span class="type">ListNode</span>(<span class="built_in">int</span> x) : <span class="keyword">val</span>(x), next(<span class="type">NULL</span>) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> <span class="type">Solution</span> &#123;</div><div class="line">public:</div><div class="line">    <span class="type">ListNode</span>* addTwoNumbers(<span class="type">ListNode</span>* l1, <span class="type">ListNode</span>* l2) &#123;</div><div class="line">        <span class="type">ListNode</span> head(-<span class="number">1</span>), *current = &amp;head;</div><div class="line">        <span class="built_in">int</span> extra = <span class="number">0</span>, l1val = <span class="number">0</span>, l2val = <span class="number">0</span>, sum;</div><div class="line">        <span class="keyword">while</span> (l1 || l2) &#123;</div><div class="line">            l1val = <span class="number">0</span>, l2val = <span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span> (l1) &#123;</div><div class="line">                l1val = l1-&gt;<span class="keyword">val</span>;</div><div class="line">                l1 = l1-&gt;next;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (l2) &#123;</div><div class="line">                l2val = l2-&gt;<span class="keyword">val</span>;</div><div class="line">                l2 = l2-&gt;next;</div><div class="line">            &#125;</div><div class="line">            sum = l1val + l2val + extra;</div><div class="line">            <span class="type">ListNode</span> *n = <span class="keyword">new</span> <span class="type">ListNode</span>(sum % <span class="number">10</span>);</div><div class="line">            extra = sum / <span class="number">10</span>;</div><div class="line">            current-&gt;next = n;</div><div class="line">            current = n;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (extra &gt; <span class="number">0</span>) &#123;</div><div class="line">            current-&gt;next = <span class="keyword">new</span> <span class="type">ListNode</span>(extra);</div><div class="line">        &#125;</div><div class="line">        return head.next;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode14. Longest Common Prefix</title>
-    <link href="http://mingyi.js.org/2017/02/13/LeetCode14-Longest-Common-Prefix/"/>
-    <id>http://mingyi.js.org/2017/02/13/LeetCode14-Longest-Common-Prefix/</id>
-    <published>2017-02-13T23:56:23.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
-    
-    <content type="html"><![CDATA[<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<h4 id="暴力穷举"><a href="#暴力穷举" class="headerlink" title="暴力穷举"></a>暴力穷举</h4><p>先找出最短的一个字符串，然后遍历这个字符串的每个字符，与其余每个字符串对应的位置做比较，直到找到不同时中止，时间复杂度O(N*M)<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">string</span> longestCommonPrefix(vector&lt;<span class="keyword">string</span>&gt;&amp; strs) &#123;</div><div class="line">        <span class="built_in">if</span> (strs.<span class="built_in">size</span>() == <span class="number">0</span>)</div><div class="line">            <span class="built_in">return</span> <span class="string">""</span>;</div><div class="line">        <span class="built_in">if</span> (strs.<span class="built_in">size</span>() == <span class="number">1</span>)</div><div class="line">            <span class="built_in">return</span> strs[<span class="number">0</span>];</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> minlenstrpos = <span class="number">-1</span>, minlen = <span class="number">1000000</span>;</div><div class="line">        <span class="keyword">string</span> result = <span class="string">""</span>;</div><div class="line">        <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs.<span class="built_in">size</span>(); i++) &#123;</div><div class="line">            <span class="built_in">if</span> (strs[i].length() &lt; minlen) &#123;</div><div class="line">                minlen = strs[i].length();</div><div class="line">                minlenstrpos = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">        <span class="built_in">for</span> (; j &lt; strs[minlenstrpos].length(); j++) &#123;</div><div class="line">            <span class="keyword">char</span> cur = strs[minlenstrpos][j];</div><div class="line">            <span class="built_in">for</span> (<span class="keyword">auto</span> str: strs) &#123;</div><div class="line">                <span class="built_in">if</span> (str[j] == cur)</div><div class="line">                    <span class="built_in">continue</span>;</div><div class="line">                <span class="built_in">else</span> &#123;</div><div class="line">                    result = strs[minlenstrpos].substr(<span class="number">0</span>, j);</div><div class="line">                    j = strs[minlenstrpos].length() + <span class="number">1</span>;</div><div class="line">                    <span class="built_in">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="built_in">if</span> (j == strs[minlenstrpos].length()) </div><div class="line">            result = strs[minlenstrpos];</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h4 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h4><p>时间复杂度O(N*M)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">struct</span> NodeStruct &#123;</div><div class="line">        <span class="keyword">char</span> c; <span class="comment">// 记录节点字符</span></div><div class="line">        <span class="keyword">int</span> degree; <span class="comment">// 记录节点的度 方便查找</span></div><div class="line">        NodeStruct* child[<span class="number">26</span>]; <span class="comment">// 子节点</span></div><div class="line">    &#125; Node, *PtrToNode;</div><div class="line">    </div><div class="line">    <span class="function">PtrToNode <span class="title">createTrie</span><span class="params">()</span> </span>&#123;</div><div class="line">        PtrToNode root = (PtrToNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</div><div class="line">        root-&gt;degree = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) </div><div class="line">            root-&gt;child[i] = <span class="literal">NULL</span>;</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insertStrToTrie</span><span class="params">(PtrToNode root, <span class="keyword">const</span> <span class="built_in">string</span> str)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = str.length();</div><div class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, idx;</div><div class="line">        PtrToNode head = root;</div><div class="line">        <span class="keyword">for</span> (; i &lt; len; i++) &#123;</div><div class="line">            idx = str[i] - <span class="string">'a'</span>;</div><div class="line">            <span class="keyword">if</span> (head-&gt;child[idx] != <span class="literal">NULL</span>) &#123;</div><div class="line">                head = head-&gt;child[idx];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                PtrToNode newnode = (PtrToNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</div><div class="line">                newnode-&gt;c = str[i];</div><div class="line">                newnode-&gt;degree = <span class="number">0</span>;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) </div><div class="line">                    newnode-&gt;child[i] = <span class="literal">NULL</span>;</div><div class="line">            </div><div class="line">                head-&gt;degree++;</div><div class="line">                head-&gt;child[idx] = newnode;</div><div class="line">                head = newnode;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (strs.size() == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span> (strs.size() == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> strs[<span class="number">0</span>];</div><div class="line">        </div><div class="line">        PtrToNode root = createTrie();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs.size(); i++) </div><div class="line">            insertStrToTrie(root, strs[i]);</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> minlenstrpos = <span class="number">-1</span>, minlen = <span class="number">1000000</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs.size(); i++) &#123;</div><div class="line">            <span class="keyword">if</span> (strs[i].length() &lt; minlen) &#123;</div><div class="line">                minlen = strs[i].length();</div><div class="line">                minlenstrpos = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        PtrToNode head = root; <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (head-&gt;degree == <span class="number">1</span> &amp;&amp; j &lt; strs[minlenstrpos].length()) &#123;</div><div class="line">            head = head-&gt;child[strs[minlenstrpos][j++] - <span class="string">'a'</span>];</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>, j);    </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Write a function to find the longest common prefix string amongst an array of strings.&lt;/p&gt;
-&lt;h4 id=&quot;暴力穷举&quot;&gt;&lt;a href=&quot;#暴力穷举&quot; class=&quot;headerlin
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode53. Maximum Subarray</title>
-    <link href="http://mingyi.js.org/2016/12/02/LeetCode53-Maximum-Subarray/"/>
-    <id>http://mingyi.js.org/2016/12/02/LeetCode53-Maximum-Subarray/</id>
-    <published>2016-12-02T21:14:16.000Z</published>
-    <updated>2017-02-15T15:43:57.579Z</updated>
-    
-    <content type="html"><![CDATA[<p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
-<p>For example, given the array [-2,1,-3,4,-1,2,1,-5,4],<br>the contiguous subarray [4,-1,2,1] has the largest sum = 6.</p>
-<h4 id="穷举法-时间复杂度O-N3"><a href="#穷举法-时间复杂度O-N3" class="headerlink" title="穷举法 时间复杂度O(N3)"></a>穷举法 时间复杂度O(N3)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x, y, maxSum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; N; x++) &#123;</div><div class="line">        <span class="keyword">for</span> (y = x; y &lt; N; y++ ) &#123;</div><div class="line">            <span class="keyword">int</span> k, thisSum = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (k = x; k &lt;= y; k++) &#123;</div><div class="line">                thisSum += a[k];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (thisSum &gt; maxSum) &#123;</div><div class="line">                maxSum = thisSum;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="穷举法优化冗余的求和步骤-时间复杂度O-N2"><a href="#穷举法优化冗余的求和步骤-时间复杂度O-N2" class="headerlink" title="穷举法优化冗余的求和步骤 时间复杂度O(N2)"></a>穷举法优化冗余的求和步骤 时间复杂度O(N2)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x, y, maxSum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; N; x++) &#123;</div><div class="line">        <span class="keyword">int</span> thisSum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (y = x; y &lt; N; y++) &#123;</div><div class="line">            thisSum += a[y];</div><div class="line">            <span class="keyword">if</span> (thisSum &gt; maxSum) &#123;</div><div class="line">                maxSum = thisSum;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="贪心法-时间复杂度O-N"><a href="#贪心法-时间复杂度O-N" class="headerlink" title="贪心法 时间复杂度O(N)"></a>贪心法 时间复杂度O(N)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x, maxSum = <span class="number">0</span>, thisSum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; N; x++) &#123;</div><div class="line">        thisSum += a[x];</div><div class="line">        <span class="keyword">if</span> (thisSum &gt; maxSum) &#123;</div><div class="line">            maxSum = thisSum;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (thisSum &lt; <span class="number">0</span>) &#123;</div><div class="line">            thisSum = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxSum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Find the contiguous subarray within an array (containing at least one number) which has the largest sum.&lt;/p&gt;
-&lt;p&gt;For example, given the ar
     
     </summary>
     
