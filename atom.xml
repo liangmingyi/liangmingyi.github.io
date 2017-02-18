@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mingyi.js.org/"/>
-  <updated>2017-02-17T03:46:17.570Z</updated>
+  <updated>2017-02-18T09:27:55.833Z</updated>
   <id>http://mingyi.js.org/</id>
   
   <author>
@@ -16,11 +16,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeeCode367. Valid Perfect Square</title>
+    <link href="http://mingyi.js.org/2017/02/18/LeeCode367-Valid-Perfect-Square/"/>
+    <id>http://mingyi.js.org/2017/02/18/LeeCode367-Valid-Perfect-Square/</id>
+    <published>2017-02-18T17:25:54.000Z</published>
+    <updated>2017-02-18T09:27:55.833Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given a positive integer num, write a function which returns True if num is a perfect square else False.</p>
+<p>Note: Do not use any built-in library function such as sqrt.</p>
+<p>Example 1:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">Input:</span> <span class="number">16</span></div><div class="line"><span class="attr">Returns:</span> <span class="literal">True</span></div></pre></td></tr></table></figure></p>
+<p>Example 2:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">Input:</span> <span class="number">14</span></div><div class="line"><span class="attr">Returns:</span> <span class="literal">False</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">public:</div><div class="line">    <span class="built_in">bool</span> isPerfectSquare(<span class="built_in">int</span> <span class="built_in">num</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">num</span> &lt; <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="built_in">int</span> tmp = mySqrt(<span class="built_in">num</span>);</div><div class="line">        <span class="keyword">return</span> tmp * tmp == <span class="built_in">num</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">int</span> mySqrt(<span class="built_in">int</span> <span class="built_in">num</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">num</span> &lt; <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> <span class="built_in">num</span>;</div><div class="line">        </div><div class="line">        <span class="built_in">int</span> l = <span class="number">0</span>, r = <span class="built_in">num</span> / <span class="number">2</span> + <span class="number">1</span>, mid = (l + r) / <span class="number">2</span>, tmp;</div><div class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</div><div class="line">            mid = (l + r) / <span class="number">2</span>;</div><div class="line">            tmp = <span class="built_in">num</span> / mid;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (tmp &gt; mid) &#123;</div><div class="line">                l = mid + <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmp &lt; mid) &#123;</div><div class="line">                r = mid - <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> mid;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given a positive integer num, write a function which returns True if num is a perfect square else False.&lt;/p&gt;
+&lt;p&gt;Note: Do not use any buil
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeeCode350. Intersection of Two Arrays II</title>
+    <link href="http://mingyi.js.org/2017/02/18/LeeCode350-Intersection-of-Two-Arrays-II/"/>
+    <id>http://mingyi.js.org/2017/02/18/LeeCode350-Intersection-of-Two-Arrays-II/</id>
+    <published>2017-02-18T17:03:38.000Z</published>
+    <updated>2017-02-18T09:27:55.833Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given two arrays, write a function to compute their intersection.</p>
+<p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].</p>
+<p>Note:<br>Each element in the result should appear as many times as it shows in both arrays.<br>The result can be in any order.<br>Follow up:<br>What if the given array is already sorted? How would you optimize your algorithm?<br>What if nums1’s size is small compared to nums2’s size? Which algorithm is better?<br>What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersect(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result;</div><div class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> item : nums1)</div><div class="line">            m[item]++;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> item : nums2) </div><div class="line">            <span class="keyword">if</span> (m[item]-- &gt; <span class="number">0</span>) </div><div class="line">                result.push_back(item);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeeCode349. Intersection of Two Arrays</title>
     <link href="http://mingyi.js.org/2017/02/17/LeeCode349-Intersection-of-Two-Arrays/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode349-Intersection-of-Two-Arrays/</id>
     <published>2017-02-17T11:44:48.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given two arrays, write a function to compute their intersection.</p>
 <p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
@@ -47,7 +102,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode345-Reverse-Vowels-of-a-String/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode345-Reverse-Vowels-of-a-String/</id>
     <published>2017-02-17T11:29:38.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
 <p>Example 1:<br>Given s = “hello”, return “holle”.</p>
@@ -75,7 +130,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode344-Reverse-String/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode344-Reverse-String/</id>
     <published>2017-02-17T00:18:15.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function that takes a string as input and returns the string reversed.</p>
 <p>Example:<br>Given s = “hello”, return “olleh”.</p>
@@ -101,7 +156,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode326-Power-of-Three/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode326-Power-of-Three/</id>
     <published>2017-02-16T23:55:01.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer, write a function to determine if it is a power of three.</p>
 <p>Follow up:<br>Could you do it without using any loop / recursion?</p>
@@ -128,7 +183,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode278-First-Bad-Version/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode278-First-Bad-Version/</id>
     <published>2017-02-16T18:05:38.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
 <p>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.</p>
@@ -153,7 +208,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode283-Move-Zeroes/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode283-Move-Zeroes/</id>
     <published>2017-02-16T17:31:11.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
 <p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
@@ -179,7 +234,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode268-Missing-Number/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode268-Missing-Number/</id>
     <published>2017-02-16T16:34:32.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
 <p>For example,<br>Given nums = [0, 1, 3] return 2.</p>
@@ -206,7 +261,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode303-Range-Sum-Query-Immutable/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode303-Range-Sum-Query-Immutable/</id>
     <published>2017-02-15T23:42:20.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.</p>
 <p>Example:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given nums = [<span class="number">-2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">-5</span>, <span class="number">2</span>, <span class="number">-1</span>]</div><div class="line"></div><div class="line">sumRange(<span class="number">0</span>, <span class="number">2</span>) -&gt; <span class="number">1</span></div><div class="line">sumRange(<span class="number">2</span>, <span class="number">5</span>) -&gt; <span class="number">-1</span></div><div class="line">sumRange(<span class="number">0</span>, <span class="number">5</span>) -&gt; <span class="number">-3</span></div></pre></td></tr></table></figure></p>
@@ -232,7 +287,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode263-Ugly-Number/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode263-Ugly-Number/</id>
     <published>2017-02-15T23:10:58.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Write a program to check whether a given number is an ugly number.</p>
 <p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.</p>
@@ -259,7 +314,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode232-Implement-Queue-using-Stacks/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode232-Implement-Queue-using-Stacks/</id>
     <published>2017-02-15T22:47:05.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Implement the following operations of a queue using stacks.</p>
 <p>push(x) – Push element x to the back of queue.<br>pop() – Removes the element from in front of queue.<br>peek() – Get the front element.<br>empty() – Return whether the queue is empty.<br>Notes:<br>You must use only standard operations of a stack – which means only push to top, peek/pop from top, size, and is empty operations are valid.<br>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.<br>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</p>
@@ -285,7 +340,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode237-Delete-Node-in-a-Linked-List/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode237-Delete-Node-in-a-Linked-List/</id>
     <published>2017-02-15T18:47:40.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
 <p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
@@ -310,7 +365,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode231-Power-of-Two/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode231-Power-of-Two/</id>
     <published>2017-02-15T17:42:12.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer, write a function to determine if it is a power of two.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfTwo</span>(<span class="params"><span class="keyword">int</span> n</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">return</span> !(n &amp; (n - <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
@@ -334,7 +389,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode155-Min-Stack/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode155-Min-Stack/</id>
     <published>2017-02-15T17:26:11.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 <p>push(x) – Push element x onto stack.<br>pop() – Removes the element on top of the stack.<br>top() – Get the top element.<br>getMin() – Retrieve the minimum element in the stack.<br>Example:<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">M<span class="keyword">in</span>Stack <span class="keyword">min</span>Stack = new M<span class="keyword">in</span>Stack();</div><div class="line"><span class="keyword">min</span>Stack.push(-<span class="number">2</span>);</div><div class="line"><span class="keyword">min</span>Stack.push(<span class="number">0</span>);</div><div class="line"><span class="keyword">min</span>Stack.push(-<span class="number">3</span>);</div><div class="line"><span class="keyword">min</span>Stack.getM<span class="keyword">in</span>();   --&gt; Returns -<span class="number">3</span>.</div><div class="line"><span class="keyword">min</span>Stack.pop();</div><div class="line"><span class="keyword">min</span>Stack.top();      --&gt; Returns <span class="number">0</span>.</div><div class="line"><span class="keyword">min</span>Stack.getM<span class="keyword">in</span>();   --&gt; Returns -<span class="number">2</span>.</div></pre></td></tr></table></figure></p>
@@ -360,7 +415,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode234-Palindrome-Linked-List/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode234-Palindrome-Linked-List/</id>
     <published>2017-02-15T14:15:49.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given a singly linked list, determine if it is a palindrome.</p>
 <p>Follow up:<br>Could you do it in O(n) time and O(1) space?</p>
@@ -387,7 +442,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode141-Linked-List-Cycle/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode141-Linked-List-Cycle/</id>
     <published>2017-02-15T00:29:00.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given a linked list, determine if it has a cycle in it.</p>
 <p>Follow up:<br>Can you solve it without using extra space?</p>
@@ -413,7 +468,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode136-Single-Number/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode136-Single-Number/</id>
     <published>2017-02-15T00:08:52.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
 <p>Note:<br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
@@ -439,7 +494,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode125-Valid-Palindrome/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode125-Valid-Palindrome/</id>
     <published>2017-02-15T00:05:29.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
 <p>For example,<br>“A man, a plan, a canal: Panama” is a palindrome.<br>“race a car” is not a palindrome.</p>
@@ -466,7 +521,7 @@
     <link href="http://mingyi.js.org/2017/02/14/LeeCode110-Balanced-Binary-Tree/"/>
     <id>http://mingyi.js.org/2017/02/14/LeeCode110-Balanced-Binary-Tree/</id>
     <published>2017-02-14T23:31:42.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
+    <updated>2017-02-18T09:27:55.833Z</updated>
     
     <content type="html"><![CDATA[<p>Given a binary tree, determine if it is height-balanced.</p>
 <p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
@@ -476,61 +531,6 @@
     
       &lt;p&gt;Given a binary tree, determine if it is height-balanced.&lt;/p&gt;
 &lt;p&gt;For this problem, a height-balanced binary tree is defined as a binary tr
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeeCode104. Maximum Depth of Binary Tree</title>
-    <link href="http://mingyi.js.org/2017/02/14/LeeCode104-Maximum-Depth-of-Binary-Tree/"/>
-    <id>http://mingyi.js.org/2017/02/14/LeeCode104-Maximum-Depth-of-Binary-Tree/</id>
-    <published>2017-02-14T22:56:02.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given a binary tree, find its maximum depth.</p>
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-<p>递归求左右子树的高度取最大再加1即为所求</p>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition <span class="keyword">for</span> a binary tree node.</div><div class="line"> * struct TreeNode &#123;</div><div class="line"> *     <span class="built_in">int</span> val;</div><div class="line"> *     TreeNode *<span class="built_in">left</span>;</div><div class="line"> *     TreeNode *<span class="built_in">right</span>;</div><div class="line"> *     TreeNode(<span class="built_in">int</span> x) : val(x), <span class="built_in">left</span>(<span class="literal">NULL</span>), <span class="built_in">right</span>(<span class="literal">NULL</span>) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">int</span> maxDepth(TreeNode* root) &#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</div><div class="line">            return <span class="number">0</span>;</div><div class="line">        <span class="built_in">int</span> leftHeight = root-&gt;<span class="built_in">left</span> ? maxDepth(root-&gt;<span class="built_in">left</span>) : <span class="number">0</span>, rightHeight = root-&gt;<span class="built_in">right</span> ? maxDepth(root-&gt;<span class="built_in">right</span>) : <span class="number">0</span>;</div><div class="line">        return max(leftHeight, rightHeight) + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
-&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node do
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeeCode101. Symmetric Tree</title>
-    <link href="http://mingyi.js.org/2017/02/14/LeeCode101-Symmetric-Tree/"/>
-    <id>http://mingyi.js.org/2017/02/14/LeeCode101-Symmetric-Tree/</id>
-    <published>2017-02-14T20:36:36.000Z</published>
-    <updated>2017-02-17T03:46:17.570Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-<p>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    <span class="number">1</span></div><div class="line">   / \</div><div class="line">  <span class="number">2</span>   <span class="number">2</span></div><div class="line"> / \ / \</div><div class="line"><span class="number">3</span>  <span class="number">4</span> <span class="number">4</span>  <span class="number">3</span></div></pre></td></tr></table></figure>
-<p>But the following [1,2,2,null,3,null,3] is not:</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  <span class="number">1</span></div><div class="line"> / \</div><div class="line"><span class="number">2</span>   <span class="number">2</span></div><div class="line"> \   \</div><div class="line"> <span class="number">3</span>    <span class="number">3</span></div></pre></td></tr></table></figure>
-<p>Note:<br>Bonus points if you could solve it both recursively and iteratively.</p>
-<figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * struct TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode *left;</div><div class="line"> *     TreeNode *right;</div><div class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">bool</span> isSymmetric(TreeNode* root) &#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">NULL</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">        </div><div class="line">        <span class="keyword">return</span> help(root-&gt;left, root-&gt;right);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">bool</span> help(TreeNode* p1, TreeNode* p2) &#123;</div><div class="line">        <span class="keyword">if</span> (p1 == <span class="keyword">NULL</span> &amp;&amp; p2 == <span class="keyword">NULL</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">if</span> (p1 == <span class="keyword">NULL</span> || p2 == <span class="keyword">NULL</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> p1-&gt;val == p2-&gt;val &amp;&amp; help(p1-&gt;left, p2-&gt;right) &amp;&amp; help(p1-&gt;right, p2-&gt;left);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).&lt;/p&gt;
-&lt;p&gt;For example, this binary tree [1,2,
     
     </summary>
     
