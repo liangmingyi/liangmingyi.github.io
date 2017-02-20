@@ -92,11 +92,7 @@ public:
                 }
             }
         }
-        
-        for (int m = 1; m <= lens; m++)
-            for (int n = 1; n <= lenp; n++)
-                cout<<"m:"<<m<<" n:"<<n<<" dp:"<<dp[m][n]<<endl;
-        
+                
         return dp[lens][lenp];
     }
 };
