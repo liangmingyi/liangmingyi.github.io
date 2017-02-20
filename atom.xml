@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mingyi.js.org/"/>
-  <updated>2017-02-20T10:47:49.689Z</updated>
+  <updated>2017-02-20T15:02:30.541Z</updated>
   <id>http://mingyi.js.org/</id>
   
   <author>
@@ -16,16 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeeCode11. Container With Most Water</title>
+    <link href="http://mingyi.js.org/2017/02/20/LeeCode11-Container-With-Most-Water/"/>
+    <id>http://mingyi.js.org/2017/02/20/LeeCode11-Container-With-Most-Water/</id>
+    <published>2017-02-20T22:59:33.000Z</published>
+    <updated>2017-02-20T15:02:30.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+<p>Note: You may not slant the container and n is at least 2.</p>
+<h4 id="两头扫，贪心法-时间复杂度O-n"><a href="#两头扫，贪心法-时间复杂度O-n" class="headerlink" title="两头扫，贪心法 时间复杂度O(n)"></a>两头扫，贪心法 时间复杂度O(n)</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    int maxArea(vector&lt;int&gt;&amp; height) &#123;</div><div class="line">        int s = height.size(), <span class="keyword">left</span> = <span class="number">0</span>, <span class="keyword">right</span> = s - <span class="number">1</span>, result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">left</span> &lt; <span class="keyword">right</span>) &#123;</div><div class="line">            int h = <span class="built_in">min</span>(height[<span class="keyword">left</span>], height[<span class="keyword">right</span>]);</div><div class="line">            result = <span class="built_in">max</span>(result, h * (<span class="keyword">right</span> - <span class="keyword">left</span>));</div><div class="line">            <span class="keyword">while</span> (height[<span class="keyword">left</span>] &lt;= h &amp;&amp; <span class="keyword">left</span> &lt; <span class="keyword">right</span>) &#123; <span class="keyword">left</span>++; &#125;</div><div class="line">            <span class="keyword">while</span> (height[<span class="keyword">right</span>] &lt;= h &amp;&amp; <span class="keyword">right</span> &gt; <span class="keyword">left</span>) &#123; <span class="keyword">right</span>--; &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that th
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeeCode10. Regular Expression Matching</title>
     <link href="http://mingyi.js.org/2017/02/20/LeeCode10-Regular-Expression-Matching/"/>
     <id>http://mingyi.js.org/2017/02/20/LeeCode10-Regular-Expression-Matching/</id>
     <published>2017-02-20T16:18:19.000Z</published>
-    <updated>2017-02-20T10:47:49.689Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Implement regular expression matching with support for ‘.’ and ‘*’.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="string">'.'</span> Matches any single character.</div><div class="line"><span class="string">'*'</span> Matches zero or more of the preceding element.</div><div class="line"></div><div class="line">The matching should cover the entire <span class="selector-tag">input</span> string (not partial).</div><div class="line"></div><div class="line">The function prototype should be:</div><div class="line">bool isMatch(const char *s, const char *p)</div><div class="line"></div><div class="line">Some examples:</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>,<span class="string">"a"</span>)</span></span> → false</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>,<span class="string">"aa"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aaa"</span>,<span class="string">"aa"</span>)</span></span> → false</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>, <span class="string">"a*"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>, <span class="string">".*"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"ab"</span>, <span class="string">".*"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>)</span></span> → true</div></pre></td></tr></table></figure></p>
 <h4 id="如果p当前是-号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分"><a href="#如果p当前是-号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分" class="headerlink" title="如果p当前是*号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分"></a>如果p当前是*号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分</h4><h4 id="递归解法如下"><a href="#递归解法如下" class="headerlink" title="递归解法如下"></a>递归解法如下</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span>(<span class="params"><span class="keyword">string</span> s, <span class="keyword">string</span> p</span>) </span>&#123;</div><div class="line">        <span class="keyword">int</span> lens = s.length(), lenp = p.length();</div><div class="line">        <span class="keyword">if</span> (lenp == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> lens == <span class="number">0</span>;</div><div class="line">            </div><div class="line">        <span class="keyword">if</span> (p[<span class="number">1</span>] == <span class="string">'*'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span> (i &lt; lens &amp;&amp; (s[i] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>)) &#123;</div><div class="line">                <span class="keyword">if</span> (isMatch(s.substr(i + <span class="number">1</span>), p.substr(<span class="number">2</span>)))</div><div class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> isMatch(s, p.substr(<span class="number">2</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> lens &gt; <span class="number">0</span> &amp;&amp; (s[<span class="number">0</span>] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>) &amp;&amp; isMatch(s.substr(<span class="number">1</span>), p.substr(<span class="number">1</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h4 id="若S的前i个字符与P的前j个字符已经匹配，则只需考察剩余的字符即可，由于具有无后效性，故也可采用动态规划解法"><a href="#若S的前i个字符与P的前j个字符已经匹配，则只需考察剩余的字符即可，由于具有无后效性，故也可采用动态规划解法" class="headerlink" title="若S的前i个字符与P的前j个字符已经匹配，则只需考察剩余的字符即可，由于具有无后效性，故也可采用动态规划解法"></a>若S的前i个字符与P的前j个字符已经匹配，则只需考察剩余的字符即可，由于具有无后效性，故也可采用动态规划解法</h4><figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">dp[i][j] 表示s[<span class="number">0</span>, i<span class="number">-1</span>] 和 p[<span class="number">0</span>, j<span class="number">-1</span>]是否匹配</div><div class="line">初始解:</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = true; // 两个空字符串</div><div class="line">    dp[<span class="number">0</span>][<span class="number">1</span>] 和 dp[<span class="number">1</span>][<span class="number">0</span>] 均是false</div><div class="line">状态转义方程：</div><div class="line">    如果p[j - <span class="number">1</span>]不是*也不是.则判断 s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>] &amp;&amp; dp[i - <span class="number">1</span>][j - <span class="number">1</span>]</div><div class="line">    如果p[j - <span class="number">1</span>]是. 则dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>]</div><div class="line">    如果p[j - <span class="number">1</span>]是* 则分三种情况</div><div class="line">        <span class="number">1.</span> 匹配<span class="number">0</span>个  dp[i][j] = dp[i][j - <span class="number">2</span>]</div><div class="line">        <span class="number">2.</span> 匹配<span class="number">1</span>个  dp[i][j] = dp[i][j - <span class="number">1</span>]</div><div class="line">        <span class="number">3.</span> 匹配多个 dp[i][j] = dp[i - <span class="number">1</span>][j] &amp;&amp; s[i - <span class="number">1</span>] == p[j - <span class="number">2</span>] || p[j - <span class="number">2</span>] == <span class="string">'.'</span></div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> lens = s.length(), lenp = p.length();</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(lens + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(lenp + <span class="number">1</span>, <span class="literal">false</span>));</div><div class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lens + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; lenp + <span class="number">1</span>; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (p[j - <span class="number">1</span>] != <span class="string">'.'</span> &amp;&amp; p[j - <span class="number">1</span>] != <span class="string">'*'</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>] &amp;&amp; dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (p[j - <span class="number">1</span>] == <span class="string">'.'</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; <span class="number">1</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (dp[i][j - <span class="number">2</span>] || dp[i][j - <span class="number">1</span>]) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; dp[i - <span class="number">1</span>][j] &amp;&amp; (s[i - <span class="number">1</span>] == p[j - <span class="number">2</span>] || p[j - <span class="number">2</span>] == <span class="string">'.'</span>)) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">1</span>; m &lt;= lens; m++)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">1</span>; n &lt;= lenp; n++)</div><div class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"m:"</span>&lt;&lt;m&lt;&lt;<span class="string">" n:"</span>&lt;&lt;n&lt;&lt;<span class="string">" dp:"</span>&lt;&lt;dp[m][n]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> dp[lens][lenp];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> lens = s.length(), lenp = p.length();</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(lens + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(lenp + <span class="number">1</span>, <span class="literal">false</span>));</div><div class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lens + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; lenp + <span class="number">1</span>; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (p[j - <span class="number">1</span>] != <span class="string">'.'</span> &amp;&amp; p[j - <span class="number">1</span>] != <span class="string">'*'</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>] &amp;&amp; dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (p[j - <span class="number">1</span>] == <span class="string">'.'</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; <span class="number">1</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (dp[i][j - <span class="number">2</span>] || dp[i][j - <span class="number">1</span>]) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; dp[i - <span class="number">1</span>][j] &amp;&amp; (s[i - <span class="number">1</span>] == p[j - <span class="number">2</span>] || p[j - <span class="number">2</span>] == <span class="string">'.'</span>)) &#123;</div><div class="line">                        dp[i][j] = <span class="literal">true</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">                </div><div class="line">        <span class="keyword">return</span> dp[lens][lenp];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -46,7 +71,7 @@
     <link href="http://mingyi.js.org/2017/02/19/LeeCode387-First-Unique-Character-in-a-String/"/>
     <id>http://mingyi.js.org/2017/02/19/LeeCode387-First-Unique-Character-in-a-String/</id>
     <published>2017-02-19T20:54:24.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</p>
 <p>Examples:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">s = <span class="string">"leetcode"</span></div><div class="line"><span class="keyword">return</span> <span class="number">0.</span></div><div class="line"></div><div class="line">s = <span class="string">"loveleetcode"</span>,</div><div class="line"><span class="keyword">return</span> <span class="number">2.</span></div></pre></td></tr></table></figure></p>
@@ -73,7 +98,7 @@
     <link href="http://mingyi.js.org/2017/02/19/LeeCode383-Ransom-Note/"/>
     <id>http://mingyi.js.org/2017/02/19/LeeCode383-Ransom-Note/</id>
     <published>2017-02-19T20:41:59.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.</p>
 <p>Each letter in the magazine string can only be used once in your ransom note.</p>
@@ -99,7 +124,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode374-Guess-Number-Higher-or-Lower/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode374-Guess-Number-Higher-or-Lower/</id>
     <published>2017-02-18T18:08:43.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>We are playing the Guess Game. The game is as follows:</p>
 <p>I pick a number from 1 to n. You have to guess which number I picked.</p>
@@ -128,7 +153,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode371-Sum-of-Two-Integers/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode371-Sum-of-Two-Integers/</id>
     <published>2017-02-18T17:52:09.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
 <p>Example:<br>Given a = 1 and b = 2, return 3.</p>
@@ -154,7 +179,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode367-Valid-Perfect-Square/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode367-Valid-Perfect-Square/</id>
     <published>2017-02-18T17:25:54.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given a positive integer num, write a function which returns True if num is a perfect square else False.</p>
 <p>Note: Do not use any built-in library function such as sqrt.</p>
@@ -182,7 +207,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode350-Intersection-of-Two-Arrays-II/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode350-Intersection-of-Two-Arrays-II/</id>
     <published>2017-02-18T17:03:38.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given two arrays, write a function to compute their intersection.</p>
 <p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].</p>
@@ -209,7 +234,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode349-Intersection-of-Two-Arrays/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode349-Intersection-of-Two-Arrays/</id>
     <published>2017-02-17T11:44:48.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given two arrays, write a function to compute their intersection.</p>
 <p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
@@ -236,7 +261,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode345-Reverse-Vowels-of-a-String/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode345-Reverse-Vowels-of-a-String/</id>
     <published>2017-02-17T11:29:38.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
 <p>Example 1:<br>Given s = “hello”, return “holle”.</p>
@@ -264,7 +289,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode344-Reverse-String/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode344-Reverse-String/</id>
     <published>2017-02-17T00:18:15.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function that takes a string as input and returns the string reversed.</p>
 <p>Example:<br>Given s = “hello”, return “olleh”.</p>
@@ -290,7 +315,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode326-Power-of-Three/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode326-Power-of-Three/</id>
     <published>2017-02-16T23:55:01.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer, write a function to determine if it is a power of three.</p>
 <p>Follow up:<br>Could you do it without using any loop / recursion?</p>
@@ -317,7 +342,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode278-First-Bad-Version/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode278-First-Bad-Version/</id>
     <published>2017-02-16T18:05:38.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
 <p>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.</p>
@@ -342,7 +367,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode283-Move-Zeroes/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode283-Move-Zeroes/</id>
     <published>2017-02-16T17:31:11.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
 <p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
@@ -368,7 +393,7 @@
     <link href="http://mingyi.js.org/2017/02/16/LeeCode268-Missing-Number/"/>
     <id>http://mingyi.js.org/2017/02/16/LeeCode268-Missing-Number/</id>
     <published>2017-02-16T16:34:32.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
 <p>For example,<br>Given nums = [0, 1, 3] return 2.</p>
@@ -395,7 +420,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode303-Range-Sum-Query-Immutable/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode303-Range-Sum-Query-Immutable/</id>
     <published>2017-02-15T23:42:20.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.</p>
 <p>Example:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given nums = [<span class="number">-2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">-5</span>, <span class="number">2</span>, <span class="number">-1</span>]</div><div class="line"></div><div class="line">sumRange(<span class="number">0</span>, <span class="number">2</span>) -&gt; <span class="number">1</span></div><div class="line">sumRange(<span class="number">2</span>, <span class="number">5</span>) -&gt; <span class="number">-1</span></div><div class="line">sumRange(<span class="number">0</span>, <span class="number">5</span>) -&gt; <span class="number">-3</span></div></pre></td></tr></table></figure></p>
@@ -421,7 +446,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode263-Ugly-Number/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode263-Ugly-Number/</id>
     <published>2017-02-15T23:10:58.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Write a program to check whether a given number is an ugly number.</p>
 <p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.</p>
@@ -448,7 +473,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode232-Implement-Queue-using-Stacks/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode232-Implement-Queue-using-Stacks/</id>
     <published>2017-02-15T22:47:05.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Implement the following operations of a queue using stacks.</p>
 <p>push(x) – Push element x to the back of queue.<br>pop() – Removes the element from in front of queue.<br>peek() – Get the front element.<br>empty() – Return whether the queue is empty.<br>Notes:<br>You must use only standard operations of a stack – which means only push to top, peek/pop from top, size, and is empty operations are valid.<br>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.<br>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</p>
@@ -474,7 +499,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode237-Delete-Node-in-a-Linked-List/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode237-Delete-Node-in-a-Linked-List/</id>
     <published>2017-02-15T18:47:40.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
 <p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
@@ -499,7 +524,7 @@
     <link href="http://mingyi.js.org/2017/02/15/LeeCode231-Power-of-Two/"/>
     <id>http://mingyi.js.org/2017/02/15/LeeCode231-Power-of-Two/</id>
     <published>2017-02-15T17:42:12.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
+    <updated>2017-02-20T15:02:30.541Z</updated>
     
     <content type="html"><![CDATA[<p>Given an integer, write a function to determine if it is a power of two.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfTwo</span>(<span class="params"><span class="keyword">int</span> n</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">return</span> !(n &amp; (n - <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
@@ -508,32 +533,6 @@
     
       &lt;p&gt;Given an integer, write a function to determine if it is a power of two.&lt;/p&gt;
 &lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeeCode155. Min Stack</title>
-    <link href="http://mingyi.js.org/2017/02/15/LeeCode155-Min-Stack/"/>
-    <id>http://mingyi.js.org/2017/02/15/LeeCode155-Min-Stack/</id>
-    <published>2017-02-15T17:26:11.000Z</published>
-    <updated>2017-02-20T10:47:49.693Z</updated>
-    
-    <content type="html"><![CDATA[<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-<p>push(x) – Push element x onto stack.<br>pop() – Removes the element on top of the stack.<br>top() – Get the top element.<br>getMin() – Retrieve the minimum element in the stack.<br>Example:<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">M<span class="keyword">in</span>Stack <span class="keyword">min</span>Stack = new M<span class="keyword">in</span>Stack();</div><div class="line"><span class="keyword">min</span>Stack.push(-<span class="number">2</span>);</div><div class="line"><span class="keyword">min</span>Stack.push(<span class="number">0</span>);</div><div class="line"><span class="keyword">min</span>Stack.push(-<span class="number">3</span>);</div><div class="line"><span class="keyword">min</span>Stack.getM<span class="keyword">in</span>();   --&gt; Returns -<span class="number">3</span>.</div><div class="line"><span class="keyword">min</span>Stack.pop();</div><div class="line"><span class="keyword">min</span>Stack.top();      --&gt; Returns <span class="number">0</span>.</div><div class="line"><span class="keyword">min</span>Stack.getM<span class="keyword">in</span>();   --&gt; Returns -<span class="number">2</span>.</div></pre></td></tr></table></figure></p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> MinStack &#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    stack&lt;<span class="keyword">int</span>&gt; s1, s2;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">/** initialize your data structure here. */</span></div><div class="line">    MinStack() &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">void</span> <span class="keyword">push</span>(<span class="keyword">int</span> x) &#123;</div><div class="line">        s1.<span class="keyword">push</span>(x);</div><div class="line">        s2.<span class="keyword">push</span>(s2.<span class="keyword">size</span>() &gt; <span class="number">0</span> ? min(x, s2.top()) : x);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">void</span> <span class="keyword">pop</span>() &#123;</div><div class="line">        s1.<span class="keyword">pop</span>();</div><div class="line">        s2.<span class="keyword">pop</span>();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> top() &#123;</div><div class="line">        <span class="keyword">return</span> s1.top();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> getMin() &#123;</div><div class="line">        <span class="keyword">return</span> s2.top();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Your MinStack object will be instantiated and called as such:</div><div class="line"> * MinStack obj = new MinStack();</div><div class="line"> * obj.push(x);</div><div class="line"> * obj.pop();</div><div class="line"> * int param_3 = obj.top();</div><div class="line"> * int param_4 = obj.getMin();</div><div class="line"> */</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.&lt;/p&gt;
-&lt;p&gt;push(x) – Push element x onto st
     
     </summary>
     
