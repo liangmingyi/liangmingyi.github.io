@@ -32,6 +32,7 @@ after_success:
 - rm -rf ./*
 - cp -r ../public/* .
 - cp ../CNAME .
+- cp ../baidu_verify_3s0mrRhvat.html .
 - git add -A .
 - git commit -m 'trigger by Travis CI'
 - git branch -m master
