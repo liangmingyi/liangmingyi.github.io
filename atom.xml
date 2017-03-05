@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mingyi.js.org/"/>
-  <updated>2017-03-05T09:20:42.892Z</updated>
+  <updated>2017-03-05T14:34:01.212Z</updated>
   <id>http://mingyi.js.org/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeetCode70. Climbing Stairs</title>
+    <link href="http://mingyi.js.org/2017/03/05/LeetCode70-Climbing-Stairs/"/>
+    <id>http://mingyi.js.org/2017/03/05/LeetCode70-Climbing-Stairs/</id>
+    <published>2017-03-05T22:20:32.000Z</published>
+    <updated>2017-03-05T14:34:01.212Z</updated>
+    
+    <content type="html"><![CDATA[<p>You are climbing a stair case. It takes n steps to reach to the top.</p>
+<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
+<p>Note: Given n will be a positive integer.</p>
+<h4 id="排列组合问题，可用递归求解；但递归会消耗系统栈空间，在leetcode上提交的时候-在n-44的这个case时，内存会爆。所以还需要对尾递归优化，用循环代替"><a href="#排列组合问题，可用递归求解；但递归会消耗系统栈空间，在leetcode上提交的时候-在n-44的这个case时，内存会爆。所以还需要对尾递归优化，用循环代替" class="headerlink" title="排列组合问题，可用递归求解；但递归会消耗系统栈空间，在leetcode上提交的时候 在n=44的这个case时，内存会爆。所以还需要对尾递归优化，用循环代替~"></a>排列组合问题，可用递归求解；但递归会消耗系统栈空间，在leetcode上提交的时候 在n=44的这个case时，内存会爆。所以还需要对尾递归优化，用循环代替~</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span>(<span class="params"><span class="keyword">int</span> n</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span> || n == <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> n;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="优化后"><a href="#优化后" class="headerlink" title="优化后:"></a>优化后:</h4><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class <span class="type">Solution</span> &#123;</div><div class="line">public:</div><div class="line">    <span class="built_in">int</span> climbStairs(<span class="built_in">int</span> n) &#123;</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span> || n == <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> n;</div><div class="line">        </div><div class="line">        <span class="built_in">int</span> <span class="literal">result</span>[n];</div><div class="line">        <span class="literal">result</span>[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        <span class="literal">result</span>[<span class="number">1</span>] = <span class="number">2</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">2</span>; i &lt; n; i++)</div><div class="line">            <span class="literal">result</span>[i] = <span class="literal">result</span>[i - <span class="number">1</span>] + <span class="literal">result</span>[i - <span class="number">2</span>];</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> <span class="literal">result</span>[n - <span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You are climbing a stair case. It takes n steps to reach to the top.&lt;/p&gt;
+&lt;p&gt;Each time you can either climb 1 or 2 steps. In how many dist
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeetCode67. Add Binary</title>
     <link href="http://mingyi.js.org/2017/03/02/LeetCode67-Add-Binary/"/>
     <id>http://mingyi.js.org/2017/03/02/LeetCode67-Add-Binary/</id>
     <published>2017-03-02T17:09:22.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given two binary strings, return their sum (also a binary string).</p>
 <p>For example,<br>a = <code>&quot;11&quot;</code><br>b = <code>&quot;1&quot;</code><br>Return <code>&quot;100&quot;</code>.</p>
@@ -46,7 +73,7 @@
     <link href="http://mingyi.js.org/2017/02/25/LeetCode39-Combination-Sum/"/>
     <id>http://mingyi.js.org/2017/02/25/LeetCode39-Combination-Sum/</id>
     <published>2017-02-25T23:48:50.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
 <p>The same repeated number may be chosen from C unlimited number of times.</p>
@@ -72,7 +99,7 @@
     <link href="http://mingyi.js.org/2017/02/24/LeetCode22-Generate-Parentheses/"/>
     <id>http://mingyi.js.org/2017/02/24/LeetCode22-Generate-Parentheses/</id>
     <published>2017-02-24T23:30:18.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
 <p>For example, given n = 3, a solution set is:</p>
@@ -98,7 +125,7 @@
     <link href="http://mingyi.js.org/2017/02/23/LeetCode20-Valid-Parentheses/"/>
     <id>http://mingyi.js.org/2017/02/23/LeetCode20-Valid-Parentheses/</id>
     <published>2017-02-23T00:49:35.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>
 <p>The brackets must close in the correct order, <code>&quot;()&quot;</code> and <code>&quot;()[]{}&quot;</code> are all valid but <code>&quot;(]&quot;</code> and <code>&quot;([)]&quot;</code> are not.</p>
@@ -123,7 +150,7 @@
     <link href="http://mingyi.js.org/2017/02/22/LeeCode19-Remove-Nth-Node-From-End-of-List/"/>
     <id>http://mingyi.js.org/2017/02/22/LeeCode19-Remove-Nth-Node-From-End-of-List/</id>
     <published>2017-02-22T00:26:42.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.208Z</updated>
     
     <content type="html"><![CDATA[<p>Given a linked list, remove the nth node from the end of list and return its head.</p>
 <p>For example,<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="type">Given</span> linked <span class="built_in">list</span>: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>, <span class="keyword">and</span> n = <span class="number">2.</span></div><div class="line"></div><div class="line"><span class="type">After</span> removing the second node from the <span class="keyword">end</span>, the linked <span class="built_in">list</span> becomes <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">5.</span></div></pre></td></tr></table></figure></p>
@@ -148,7 +175,7 @@
     <link href="http://mingyi.js.org/2017/02/22/LeeCode18-4Sum/"/>
     <id>http://mingyi.js.org/2017/02/22/LeeCode18-4Sum/</id>
     <published>2017-02-22T00:00:23.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.208Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.</p>
 <p>Note: The solution set must not contain duplicate quadruplets.</p>
@@ -175,7 +202,7 @@
     <link href="http://mingyi.js.org/2017/02/21/LeeCode17-Letter-Combinations-of-a-Phone-Number/"/>
     <id>http://mingyi.js.org/2017/02/21/LeeCode17-Letter-Combinations-of-a-Phone-Number/</id>
     <published>2017-02-21T00:42:28.000Z</published>
-    <updated>2017-03-05T09:20:42.888Z</updated>
+    <updated>2017-03-05T14:34:01.208Z</updated>
     
     <content type="html"><![CDATA[<p>Given a digit string, return all possible letter combinations that the number could represent.</p>
 <p>A mapping of digit to letters (just like on the telephone buttons) is given below.</p>
@@ -202,7 +229,7 @@
     <link href="http://mingyi.js.org/2017/02/20/LeeCode16-3Sum-Closest/"/>
     <id>http://mingyi.js.org/2017/02/20/LeeCode16-3Sum-Closest/</id>
     <published>2017-02-20T23:35:42.000Z</published>
-    <updated>2017-03-05T09:20:42.888Z</updated>
+    <updated>2017-03-05T14:34:01.208Z</updated>
     
     <content type="html"><![CDATA[<p>Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">For example, given<span class="built_in"> array </span>S = &#123;-1 2 1 -4&#125;,<span class="built_in"> and </span>target = 1.</div><div class="line"></div><div class="line">The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</div></pre></td></tr></table></figure>
@@ -226,7 +253,7 @@
     <link href="http://mingyi.js.org/2017/02/20/LeeCode11-Container-With-Most-Water/"/>
     <id>http://mingyi.js.org/2017/02/20/LeeCode11-Container-With-Most-Water/</id>
     <published>2017-02-20T22:59:33.000Z</published>
-    <updated>2017-03-05T09:20:42.888Z</updated>
+    <updated>2017-03-05T14:34:01.208Z</updated>
     
     <content type="html"><![CDATA[<p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
 <p>Note: You may not slant the container and n is at least 2.</p>
@@ -251,7 +278,7 @@
     <link href="http://mingyi.js.org/2017/02/20/LeeCode10-Regular-Expression-Matching/"/>
     <id>http://mingyi.js.org/2017/02/20/LeeCode10-Regular-Expression-Matching/</id>
     <published>2017-02-20T16:18:19.000Z</published>
-    <updated>2017-03-05T09:20:42.888Z</updated>
+    <updated>2017-03-05T14:34:01.208Z</updated>
     
     <content type="html"><![CDATA[<p>Implement regular expression matching with support for ‘.’ and ‘*’.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="string">'.'</span> Matches any single character.</div><div class="line"><span class="string">'*'</span> Matches zero or more of the preceding element.</div><div class="line"></div><div class="line">The matching should cover the entire <span class="selector-tag">input</span> string (not partial).</div><div class="line"></div><div class="line">The function prototype should be:</div><div class="line">bool isMatch(const char *s, const char *p)</div><div class="line"></div><div class="line">Some examples:</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>,<span class="string">"a"</span>)</span></span> → false</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>,<span class="string">"aa"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aaa"</span>,<span class="string">"aa"</span>)</span></span> → false</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>, <span class="string">"a*"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aa"</span>, <span class="string">".*"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"ab"</span>, <span class="string">".*"</span>)</span></span> → true</div><div class="line"><span class="function"><span class="title">isMatch</span><span class="params">(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>)</span></span> → true</div></pre></td></tr></table></figure></p>
 <h4 id="如果p当前是-号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分"><a href="#如果p当前是-号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分" class="headerlink" title="如果p当前是*号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分"></a>如果p当前是*号，则可以匹配一个或多个上一个字符，否则各自往后移动一个位置，然后再递归的去判断剩余的部分</h4><h4 id="递归解法如下"><a href="#递归解法如下" class="headerlink" title="递归解法如下"></a>递归解法如下</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span>(<span class="params"><span class="keyword">string</span> s, <span class="keyword">string</span> p</span>) </span>&#123;</div><div class="line">        <span class="keyword">int</span> lens = s.length(), lenp = p.length();</div><div class="line">        <span class="keyword">if</span> (lenp == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> lens == <span class="number">0</span>;</div><div class="line">            </div><div class="line">        <span class="keyword">if</span> (p[<span class="number">1</span>] == <span class="string">'*'</span>) &#123;</div><div class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span> (i &lt; lens &amp;&amp; (s[i] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>)) &#123;</div><div class="line">                <span class="keyword">if</span> (isMatch(s.substr(i + <span class="number">1</span>), p.substr(<span class="number">2</span>)))</div><div class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> isMatch(s, p.substr(<span class="number">2</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> lens &gt; <span class="number">0</span> &amp;&amp; (s[<span class="number">0</span>] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>) &amp;&amp; isMatch(s.substr(<span class="number">1</span>), p.substr(<span class="number">1</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
@@ -277,7 +304,7 @@
     <link href="http://mingyi.js.org/2017/02/19/LeeCode387-First-Unique-Character-in-a-String/"/>
     <id>http://mingyi.js.org/2017/02/19/LeeCode387-First-Unique-Character-in-a-String/</id>
     <published>2017-02-19T20:54:24.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</p>
 <p>Examples:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">s = <span class="string">"leetcode"</span></div><div class="line"><span class="keyword">return</span> <span class="number">0.</span></div><div class="line"></div><div class="line">s = <span class="string">"loveleetcode"</span>,</div><div class="line"><span class="keyword">return</span> <span class="number">2.</span></div></pre></td></tr></table></figure></p>
@@ -304,7 +331,7 @@
     <link href="http://mingyi.js.org/2017/02/19/LeeCode383-Ransom-Note/"/>
     <id>http://mingyi.js.org/2017/02/19/LeeCode383-Ransom-Note/</id>
     <published>2017-02-19T20:41:59.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.</p>
 <p>Each letter in the magazine string can only be used once in your ransom note.</p>
@@ -330,7 +357,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode374-Guess-Number-Higher-or-Lower/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode374-Guess-Number-Higher-or-Lower/</id>
     <published>2017-02-18T18:08:43.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>We are playing the Guess Game. The game is as follows:</p>
 <p>I pick a number from 1 to n. You have to guess which number I picked.</p>
@@ -359,7 +386,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode371-Sum-of-Two-Integers/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode371-Sum-of-Two-Integers/</id>
     <published>2017-02-18T17:52:09.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
 <p>Example:<br>Given a = 1 and b = 2, return 3.</p>
@@ -385,7 +412,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode367-Valid-Perfect-Square/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode367-Valid-Perfect-Square/</id>
     <published>2017-02-18T17:25:54.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given a positive integer num, write a function which returns True if num is a perfect square else False.</p>
 <p>Note: Do not use any built-in library function such as sqrt.</p>
@@ -413,7 +440,7 @@
     <link href="http://mingyi.js.org/2017/02/18/LeeCode350-Intersection-of-Two-Arrays-II/"/>
     <id>http://mingyi.js.org/2017/02/18/LeeCode350-Intersection-of-Two-Arrays-II/</id>
     <published>2017-02-18T17:03:38.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given two arrays, write a function to compute their intersection.</p>
 <p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].</p>
@@ -440,7 +467,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode349-Intersection-of-Two-Arrays/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode349-Intersection-of-Two-Arrays/</id>
     <published>2017-02-17T11:44:48.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Given two arrays, write a function to compute their intersection.</p>
 <p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
@@ -467,7 +494,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode345-Reverse-Vowels-of-a-String/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode345-Reverse-Vowels-of-a-String/</id>
     <published>2017-02-17T11:29:38.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
 <p>Example 1:<br>Given s = “hello”, return “holle”.</p>
@@ -495,7 +522,7 @@
     <link href="http://mingyi.js.org/2017/02/17/LeeCode344-Reverse-String/"/>
     <id>http://mingyi.js.org/2017/02/17/LeeCode344-Reverse-String/</id>
     <published>2017-02-17T00:18:15.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
+    <updated>2017-03-05T14:34:01.212Z</updated>
     
     <content type="html"><![CDATA[<p>Write a function that takes a string as input and returns the string reversed.</p>
 <p>Example:<br>Given s = “hello”, return “olleh”.</p>
@@ -506,33 +533,6 @@
       &lt;p&gt;Write a function that takes a string as input and returns the string reversed.&lt;/p&gt;
 &lt;p&gt;Example:&lt;br&gt;Given s = “hello”, return “olleh”.&lt;/p&gt;
 
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://mingyi.js.org/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mingyi.js.org/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeeCode326. Power of Three</title>
-    <link href="http://mingyi.js.org/2017/02/16/LeeCode326-Power-of-Three/"/>
-    <id>http://mingyi.js.org/2017/02/16/LeeCode326-Power-of-Three/</id>
-    <published>2017-02-16T23:55:01.000Z</published>
-    <updated>2017-03-05T09:20:42.892Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given an integer, write a function to determine if it is a power of three.</p>
-<p>Follow up:<br>Could you do it without using any loop / recursion?</p>
-<h4 id="这个题的follow-up是希望能不用循环或递归，一直想不出来解法，后来看到了下面的这种利用对数的换底公式来做的方法，也是拓宽了思路"><a href="#这个题的follow-up是希望能不用循环或递归，一直想不出来解法，后来看到了下面的这种利用对数的换底公式来做的方法，也是拓宽了思路" class="headerlink" title="这个题的follow up是希望能不用循环或递归，一直想不出来解法，后来看到了下面的这种利用对数的换底公式来做的方法，也是拓宽了思路"></a>这个题的follow up是希望能不用循环或递归，一直想不出来解法，后来看到了下面的这种利用对数的换底公式来做的方法，也是拓宽了思路</h4><p>log以3为底的n的对数等于以n为底10的对数除以3为底10的对数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">log10</span>(n) / <span class="built_in">log10</span>(<span class="number">3</span>) - <span class="keyword">int</span>(<span class="built_in">log10</span>(n) / <span class="built_in">log10</span>(<span class="number">3</span>)) == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Given an integer, write a function to determine if it is a power of three.&lt;/p&gt;
-&lt;p&gt;Follow up:&lt;br&gt;Could you do it without using any loop / 
     
     </summary>
     
