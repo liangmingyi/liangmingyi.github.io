@@ -10,7 +10,7 @@ Implement strStr().
 Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 
-简单的做法双重循环，依次去比较，时间复杂度O(m*n)，也可以用KMP
+简单的做法双重循环，依次去比较，时间复杂度O(m*n)
 
 ```
 class Solution {
@@ -34,7 +34,7 @@ public:
 };
 ```
 
-翻出算法导论，复习了下KMP，无论理解还是写起来都还是比较费劲的（只见过一位清华学霸徒手写完整过），网上的解读资料也是非常多的，有一篇写的比较好的，[KMP算法详解](http://www.matrix67.com/blog/archives/115)  最优时间复杂度O(n)
+当然还有很多其它解法，比如KMP，最优时间复杂度O(n)。翻出算法导论，复习了下KMP，无论理解还是写起来都还是比较费劲的（只见过一位清华学霸徒手写完整过），网上的解读资料也是非常多的，有一篇思路比较清晰易懂的，[KMP算法详解](http://www.matrix67.com/blog/archives/115)  
 ```
 class Solution {
 public:
