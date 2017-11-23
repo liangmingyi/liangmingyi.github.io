@@ -44,9 +44,9 @@ public:
     }
     
     void swap(char &a, char &b) {
-        char tmp = a;
-        a = b;
-        b = tmp;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
     }
 };
 ```
