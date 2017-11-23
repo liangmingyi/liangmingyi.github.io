@@ -1,25 +1,27 @@
-# noise/_config.yml
-# Header
-menu:
-  ## If your site is put in a subdirectory, set Home as '/child/'
-  Home: /
-  Archives: archives
+# Blog
+keywords: 茗一的笔记
+author: Mingyi Liang,mingyi.me@gmail.com
+description: 茗一的笔记
+avatar: http://mingyi-1251130916.file.myqcloud.com/blog/1021511433589_.pic_hd.jpg
 
-social:
-  email: mingyi.me@gmail.com
-  github: https://github.com/liangmingyi
-  rss: /atom.xml
+# Social Accounts
+twitter: 
+rss: 
+weibo: 
+instagram: 
+github: https://github.com/liangmingyi
+facebook: 
 
-# Content
-fancybox: true # set to true if you want to use it
-
-duoshuo: mingyi-me
-disqus: #disqus _shortname
-google_analytics: UA-91935691-1 #Google Analytics Tracking Code
-google_adsense_page_level_ads: #Google Adsense Page Level Ads Code
-
-less:
-  paths:
-    - source/css
-  compress:
-    true
+# Comment
+duoshuo: 
+disqus: 
+gentie: 
+# Valine comments https://valine.js.org
+valine:
+  enable: false # if you want use valine, please set enable: true
+  appid:  # your leancloud appid
+  appkey:  # your leancloud appkey
+  notify: false # true/false:mail notify !!!Test,Caution. https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE
+  verify: false # true/false:verify code
+  avatar: mm # avatar style https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
+  placeholder: Just go go # comment box placeholder
