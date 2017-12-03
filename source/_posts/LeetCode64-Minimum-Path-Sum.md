@@ -21,12 +21,18 @@ Given the above grid map, return 7. Because the path 1→3→1→1→1 minimizes
 
 
 动态规划问题，先确定状态转移方程，dp[i][j]表示到下标为i,j的位置时的最优解
+
+```
 dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
+```
+
 初值
+
+```
 dp[0][0] = grid[0][0]
 dp[0][j > 0] = dp[0][j - 1] + grid[i][j] // 第一行只能横着走
 dp[i > 0][0] = dp[i - 1][0] + grid[i][j] // 最左列只能竖着走
-
+```
 
 时间复杂度O(mn)，空间复杂度O(mn)
 
