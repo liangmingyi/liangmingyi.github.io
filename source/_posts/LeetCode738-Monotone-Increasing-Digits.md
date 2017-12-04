@@ -60,7 +60,7 @@ public:
             if (checkNum(ret))
                 return ret;
         }
-        return 1;
+        return 0;
     }
 };
 ```
